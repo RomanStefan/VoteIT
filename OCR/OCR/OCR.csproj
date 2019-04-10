@@ -96,9 +96,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\buletin.bmp" />
+    <Content Include="images\buletin.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\buletin.jpg" />
-    <Content Include="images\fata.bmp" />
+    <Content Include="images\fata.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\petruta.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\x64\pvt.cppan.demo.danbloomberg.leptonica-1.74.4.dll" />
     <Content Include="lib\x64\pvt.cppan.demo.google.tesseract.libtesseract400.dll" />
     <Content Include="lib\x64\pvt.cppan.demo.jpeg-9.2.0.dll" />

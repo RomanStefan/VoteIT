@@ -35,9 +35,28 @@ namespace OCR
             return cnp.ToString();
         }
 
+         static bool validateCNP(string cnp)
+         {
+            const string a = "279146358279";
+            long suma = 0;
+
+            if (cnp.Length != 13)
+                return false;
+
+            for (int i = 0; i < 12; i++)
+                suma += long.Parse(cnp.Substring(i, 1)) * long.Parse(a.Substring(i, 1));
+
+            long rest = suma - 11 * (int)(suma / 11);
+            rest = rest == 10 ? rest : 1;
+
+            if (long.Parse(cnp.Substring(12, 1)) != rest)
+                return false;
+            return true;
+        }
+
         static void Main(string[] args)
         {
-            var img = new Bitmap("D://WorkSpace//C#//OCR//OCR//images//buletin.bmp");
+            var img = new Bitmap(".//images//buletin.bmp");
             var engine = new TesseractEngine("./tessdata", "ron", EngineMode.Default);
             var page = engine.Process(img, PageSegMode.Auto);
             string result = page.GetText();
@@ -63,9 +82,10 @@ namespace OCR
             System.Console.WriteLine("lastName: {0}", lastName);
 
 
-            //Formarea cnp-ului
-            string CNP = getCNP(informationBar);
-            Console.WriteLine("CNP:{0}", CNP);
+            //Formarea cnp-ului si verificarea validitatii lui
+            var CNP = getCNP(informationBar);
+            bool valideCNP = validateCNP(CNP);
+            Console.WriteLine("CNP:{0} valid: {1}", CNP, valideCNP);
         }
     }
 
