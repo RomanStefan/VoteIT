@@ -11,12 +11,6 @@ D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.AssemblyInfo.cs
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.TagHelpers.input.cache
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.TagHelpers.output.cache
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.RazorCoreGenerate.cache
-D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
-D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
-D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.RazorTargetAssemblyInfo.cache
@@ -33,3 +27,10 @@ D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Voters\Delete.g.csht
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Voters\Details.g.cshtml.cs
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Voters\Edit.g.cshtml.cs
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Voters\Index.g.cshtml.cs
+D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+D:\VoteIT\VoteIT\VoteIT\bin\Debug\netcoreapp2.2\x64\ChakraCore.dll
+D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs

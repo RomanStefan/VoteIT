@@ -23,8 +23,13 @@ using VoteIT.Models;
 
 #line default
 #line hidden
+#line 3 "D:\VoteIT\VoteIT\VoteIT\Views\_ViewImports.cshtml"
+using React.AspNet;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f74b46a2818479700ec481929bb45490d9164238", @"/Views/Voters/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ceae4739195834e8a560da41bfb9c45f6e5bb96b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"82cd42b63a4e5591517c63cc11adc5f811358ea8", @"/Views/_ViewImports.cshtml")]
     public class Views_Voters_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<VoteIT.Models.Voter>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -124,7 +129,7 @@ using VoteIT.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(799, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f74b46a2818479700ec481929bb45490d91642386424", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f74b46a2818479700ec481929bb45490d91642386537", async() => {
                 BeginContext(846, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -159,7 +164,7 @@ using VoteIT.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(862, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f74b46a2818479700ec481929bb45490d91642388715", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f74b46a2818479700ec481929bb45490d91642388828", async() => {
                 BeginContext(884, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

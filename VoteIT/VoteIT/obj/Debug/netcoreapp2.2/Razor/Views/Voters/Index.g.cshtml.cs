@@ -23,8 +23,13 @@ using VoteIT.Models;
 
 #line default
 #line hidden
+#line 3 "D:\VoteIT\VoteIT\VoteIT\Views\_ViewImports.cshtml"
+using React.AspNet;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b46f9c8b398be874f40796c0e0a945a73bdd63c", @"/Views/Voters/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ceae4739195834e8a560da41bfb9c45f6e5bb96b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"82cd42b63a4e5591517c63cc11adc5f811358ea8", @"/Views/_ViewImports.cshtml")]
     public class Views_Voters_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<VoteIT.Models.Voter>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -66,7 +71,7 @@ using VoteIT.Models;
             WriteLiteral("\r\n<h1>Index</h1>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(113, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c4577", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c4690", async() => {
                 BeginContext(136, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -156,7 +161,7 @@ using VoteIT.Models;
             WriteLiteral("\r\n        </td>\r\n        <td>\r\n            ");
             EndContext();
             BeginContext(846, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c8571", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c8684", async() => {
                 BeginContext(892, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -191,7 +196,7 @@ using VoteIT.Models;
             WriteLiteral(" |\r\n            ");
             EndContext();
             BeginContext(916, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c10876", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c10989", async() => {
                 BeginContext(965, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -226,7 +231,7 @@ using VoteIT.Models;
             WriteLiteral(" |\r\n            ");
             EndContext();
             BeginContext(992, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c13188", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b46f9c8b398be874f40796c0e0a945a73bdd63c13301", async() => {
                 BeginContext(1040, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
