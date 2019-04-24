@@ -2,85 +2,10 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "AdvancedStringBuilder/0.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/AdvancedStringBuilder.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/AdvancedStringBuilder.dll": {}
-        }
-      },
-      "JavaScriptEngineSwitcher.ChakraCore/3.0.9": {
+      "Microsoft.AspNet.WebApi/5.0.0": {
         "type": "package",
         "dependencies": {
-          "AdvancedStringBuilder": "0.1.0",
-          "JavaScriptEngineSwitcher.Core": "3.0.0"
-        },
-        "compile": {
-          "lib/netcoreapp2.1/JavaScriptEngineSwitcher.ChakraCore.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/JavaScriptEngineSwitcher.ChakraCore.dll": {}
-        },
-        "resource": {
-          "lib/netcoreapp2.1/ru-ru/JavaScriptEngineSwitcher.ChakraCore.resources.dll": {
-            "locale": "ru-ru"
-          }
-        }
-      },
-      "JavaScriptEngineSwitcher.ChakraCore.Native.win-x64/3.0.9": {
-        "type": "package",
-        "build": {
-          "build/JavaScriptEngineSwitcher.ChakraCore.Native.win-x64.props": {}
-        },
-        "runtimeTargets": {
-          "runtimes/win-x64/native/ChakraCore.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          }
-        }
-      },
-      "JavaScriptEngineSwitcher.Core/3.0.0": {
-        "type": "package",
-        "dependencies": {
-          "AdvancedStringBuilder": "0.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/JavaScriptEngineSwitcher.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/JavaScriptEngineSwitcher.Core.dll": {}
-        },
-        "resource": {
-          "lib/netstandard2.0/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll": {
-            "locale": "ru-ru"
-          }
-        }
-      },
-      "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection/3.0.0": {
-        "type": "package",
-        "dependencies": {
-          "JavaScriptEngineSwitcher.Core": "3.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll": {}
-        }
-      },
-      "JSPool/4.0.0": {
-        "type": "package",
-        "dependencies": {
-          "JavaScriptEngineSwitcher.Core": "3.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/JSPool.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/JSPool.dll": {}
+          "Microsoft.AspNet.WebApi.WebHost": "5.0.0"
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -94,6 +19,30 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.WebHost/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.WebHost.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.WebHost.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.2.0": {
@@ -2974,52 +2923,6 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
-      "React.AspNet/4.1.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.0.0",
-          "React.AspNet.Middleware": "4.1.1",
-          "React.Core": "4.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/React.AspNet.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/React.AspNet.dll": {}
-        }
-      },
-      "React.AspNet.Middleware/4.1.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.0",
-          "Microsoft.AspNetCore.StaticFiles": "2.0.0",
-          "Microsoft.Extensions.Caching.Abstractions": "2.2.0",
-          "Microsoft.Extensions.DependencyInjection": "2.2.0",
-          "Microsoft.Extensions.FileProviders.Physical": "2.2.0",
-          "React.Core": "4.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/React.AspNet.Middleware.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/React.AspNet.Middleware.dll": {}
-        }
-      },
-      "React.Core/4.1.1": {
-        "type": "package",
-        "dependencies": {
-          "JSPool": "4.0.0",
-          "JavaScriptEngineSwitcher.Core": "3.0.0",
-          "Microsoft.Extensions.DependencyModel": "2.0.4",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/React.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/React.Core.dll": {}
-        }
-      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -4851,139 +4754,15 @@
     }
   },
   "libraries": {
-    "AdvancedStringBuilder/0.1.0": {
-      "sha512": "IbN3r5whlJvi8MhCDPVpIb+NVScyUcKSdcJZrnoXFDyzPDISl3AbWouNBYIHRdZdfGuzqCQEhM1vkxbIKqQVaQ==",
+    "Microsoft.AspNet.WebApi/5.0.0": {
+      "sha512": "/07pinlu39FnRfx26rXb8Z8+nsIfa9DCKNEQcSRsYsW0UFfv6R+OdshZbXb6lD7aViLjDwx7vVFxM6MPaizU7Q==",
       "type": "package",
-      "path": "advancedstringbuilder/0.1.0",
+      "path": "microsoft.aspnet.webapi/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "advancedstringbuilder.0.1.0.nupkg.sha512",
-        "advancedstringbuilder.nuspec",
-        "lib/net40-client/AdvancedStringBuilder.dll",
-        "lib/net40-client/AdvancedStringBuilder.xml",
-        "lib/net45/AdvancedStringBuilder.dll",
-        "lib/net45/AdvancedStringBuilder.xml",
-        "lib/netstandard1.0/AdvancedStringBuilder.dll",
-        "lib/netstandard1.0/AdvancedStringBuilder.xml",
-        "lib/netstandard2.0/AdvancedStringBuilder.dll",
-        "lib/netstandard2.0/AdvancedStringBuilder.xml"
-      ]
-    },
-    "JavaScriptEngineSwitcher.ChakraCore/3.0.9": {
-      "sha512": "kC0wKWZcZIBV0usFkamvHQoc7MZE1u5XtXXLZ5lmnNWc+hAHibv1TCbzvnR5QamH1I7Gzv5wTF0AwhthAngmug==",
-      "type": "package",
-      "path": "javascriptengineswitcher.chakracore/3.0.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "chakra-samples-license.txt",
-        "dotnet-corefx-license.txt",
-        "javascriptengineswitcher.chakracore.3.0.9.nupkg.sha512",
-        "javascriptengineswitcher.chakracore.nuspec",
-        "jsrt-dotnet-license.txt",
-        "lib/net40-client/JavaScriptEngineSwitcher.ChakraCore.dll",
-        "lib/net40-client/JavaScriptEngineSwitcher.ChakraCore.xml",
-        "lib/net40-client/ru-ru/JavaScriptEngineSwitcher.ChakraCore.resources.dll",
-        "lib/net45/JavaScriptEngineSwitcher.ChakraCore.dll",
-        "lib/net45/JavaScriptEngineSwitcher.ChakraCore.xml",
-        "lib/net45/ru-ru/JavaScriptEngineSwitcher.ChakraCore.resources.dll",
-        "lib/net471/JavaScriptEngineSwitcher.ChakraCore.dll",
-        "lib/net471/JavaScriptEngineSwitcher.ChakraCore.xml",
-        "lib/net471/ru-ru/JavaScriptEngineSwitcher.ChakraCore.resources.dll",
-        "lib/netcoreapp2.1/JavaScriptEngineSwitcher.ChakraCore.dll",
-        "lib/netcoreapp2.1/JavaScriptEngineSwitcher.ChakraCore.xml",
-        "lib/netcoreapp2.1/ru-ru/JavaScriptEngineSwitcher.ChakraCore.resources.dll",
-        "lib/netstandard1.3/JavaScriptEngineSwitcher.ChakraCore.dll",
-        "lib/netstandard1.3/JavaScriptEngineSwitcher.ChakraCore.xml",
-        "lib/netstandard1.3/ru-ru/JavaScriptEngineSwitcher.ChakraCore.resources.dll",
-        "lib/netstandard2.0/JavaScriptEngineSwitcher.ChakraCore.dll",
-        "lib/netstandard2.0/JavaScriptEngineSwitcher.ChakraCore.xml",
-        "lib/netstandard2.0/ru-ru/JavaScriptEngineSwitcher.ChakraCore.resources.dll",
-        "readme.txt"
-      ]
-    },
-    "JavaScriptEngineSwitcher.ChakraCore.Native.win-x64/3.0.9": {
-      "sha512": "wR7CCnxD13QNQ7JEMh1qX0VvB80/7zfL36b1L+rCVpVI6tF4eVR7fArYLKoGFPFeWP6CRuzJm1rGQvgKkww5PQ==",
-      "type": "package",
-      "path": "javascriptengineswitcher.chakracore.native.win-x64/3.0.9",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "build/JavaScriptEngineSwitcher.ChakraCore.Native.win-x64.props",
-        "chakra-core-license.txt",
-        "javascriptengineswitcher.chakracore.native.win-x64.3.0.9.nupkg.sha512",
-        "javascriptengineswitcher.chakracore.native.win-x64.nuspec",
-        "readme.txt",
-        "runtimes/win-x64/native/ChakraCore.dll",
-        "tools/Install.ps1",
-        "tools/Uninstall.ps1"
-      ]
-    },
-    "JavaScriptEngineSwitcher.Core/3.0.0": {
-      "sha512": "tDhw+nV/iqYVAFz+cd28z7mOWykp0DqMe1hlKE4QcRq96Od1N4D7w6f0wlUgxGsjbzhbizXvwA1o4cIXworumg==",
-      "type": "package",
-      "path": "javascriptengineswitcher.core/3.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "javascriptengineswitcher.core.3.0.0.nupkg.sha512",
-        "javascriptengineswitcher.core.nuspec",
-        "lib/net40-client/JavaScriptEngineSwitcher.Core.dll",
-        "lib/net40-client/JavaScriptEngineSwitcher.Core.xml",
-        "lib/net40-client/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll",
-        "lib/net45/JavaScriptEngineSwitcher.Core.dll",
-        "lib/net45/JavaScriptEngineSwitcher.Core.xml",
-        "lib/net45/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll",
-        "lib/netstandard1.3/JavaScriptEngineSwitcher.Core.dll",
-        "lib/netstandard1.3/JavaScriptEngineSwitcher.Core.xml",
-        "lib/netstandard1.3/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll",
-        "lib/netstandard2.0/JavaScriptEngineSwitcher.Core.dll",
-        "lib/netstandard2.0/JavaScriptEngineSwitcher.Core.xml",
-        "lib/netstandard2.0/ru-ru/JavaScriptEngineSwitcher.Core.resources.dll",
-        "readme.txt"
-      ]
-    },
-    "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection/3.0.0": {
-      "sha512": "8kwBRF8SREsNoJgez6xaWCvMIGxVjga49HZUFDLnIb7dkLNs0kYc3WRMUiZk1z0LThxgFt2ofmQ2Se+QWfBIIA==",
-      "type": "package",
-      "path": "javascriptengineswitcher.extensions.msdependencyinjection/3.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "javascriptengineswitcher.extensions.msdependencyinjection.3.0.0.nupkg.sha512",
-        "javascriptengineswitcher.extensions.msdependencyinjection.nuspec",
-        "lib/net45/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll",
-        "lib/net45/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.xml",
-        "lib/netstandard1.3/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll",
-        "lib/netstandard1.3/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.xml",
-        "lib/netstandard2.0/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll",
-        "lib/netstandard2.0/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.xml",
-        "readme.txt"
-      ]
-    },
-    "JSPool/4.0.0": {
-      "sha512": "r+AeQ9R50HxU+HLqASYvZz6Mvg7RmZwEnCVhQ+xGYVexFjYYqlkW6by9HaflGaHjy+/28YLbb3qxDLRJ3AbZGQ==",
-      "type": "package",
-      "path": "jspool/4.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "jspool.4.0.0.nupkg.sha512",
-        "jspool.nuspec",
-        "lib/net40-client/JSPool.dll",
-        "lib/net40-client/JSPool.xml",
-        "lib/net45/JSPool.dll",
-        "lib/net45/JSPool.xml",
-        "lib/netstandard1.3/JSPool.dll",
-        "lib/netstandard1.3/JSPool.xml",
-        "lib/netstandard2.0/JSPool.dll",
-        "lib/netstandard2.0/JSPool.xml"
+        "microsoft.aspnet.webapi.5.0.0.nupkg.sha512",
+        "microsoft.aspnet.webapi.nuspec"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -5001,6 +4780,33 @@
         "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
         "microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
         "microsoft.aspnet.webapi.client.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Core/5.0.0": {
+      "sha512": "ZOVLLtFpSM8nkJopUM9upbJEUkAUS60j6Sj1hDKewHaekWMUnnoMX/i3Ee+7KgxMGk13yxxQRHtSwcjh1JpJ4w==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.core/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/web.config.transform",
+        "lib/net45/System.Web.Http.dll",
+        "lib/net45/System.Web.Http.xml",
+        "microsoft.aspnet.webapi.core.5.0.0.nupkg.sha512",
+        "microsoft.aspnet.webapi.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.WebHost/5.0.0": {
+      "sha512": "mvgJ+xoWtDi9RrPFTwicV6xVx1EuNXjLJ19hxXGFHcYdHG3vvr+MI2p1tfN4WUO8SVrug+QHfarkjaucjSzRpw==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.webhost/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/System.Web.Http.WebHost.dll",
+        "lib/net45/System.Web.Http.WebHost.xml",
+        "microsoft.aspnet.webapi.webhost.5.0.0.nupkg.sha512",
+        "microsoft.aspnet.webapi.webhost.nuspec"
       ]
     },
     "Microsoft.AspNetCore/2.2.0": {
@@ -8370,51 +8176,6 @@
         "lib/netstandard1.6/NuGet.Frameworks.xml",
         "nuget.frameworks.4.7.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
-      ]
-    },
-    "React.AspNet/4.1.1": {
-      "sha512": "jvKcdLv8VGaHZ8f6bcfh+LckNQcMUIWkv1zPnziNUFOlXGii+T4X6gZTxbB1LR01SEdSCdW2DrLztEeqnAh/cw==",
-      "type": "package",
-      "path": "react.aspnet/4.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/React.AspNet.dll",
-        "lib/netstandard2.0/React.AspNet.xml",
-        "react.aspnet.4.1.1.nupkg.sha512",
-        "react.aspnet.nuspec"
-      ]
-    },
-    "React.AspNet.Middleware/4.1.1": {
-      "sha512": "OEQatO9NipTmbOg9x5K3lZl1v71SDaDoSfEkii+bRDkLP5F4kyThPkXi3C+6c1uYFSemt3nDSC1Rla9Z2h8DJQ==",
-      "type": "package",
-      "path": "react.aspnet.middleware/4.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netstandard2.0/React.AspNet.Middleware.dll",
-        "lib/netstandard2.0/React.AspNet.Middleware.xml",
-        "react.aspnet.middleware.4.1.1.nupkg.sha512",
-        "react.aspnet.middleware.nuspec"
-      ]
-    },
-    "React.Core/4.1.1": {
-      "sha512": "U/xkZmQRfNQOgtXtNNyCUyHdQTuhBlwuZfOiTLoodMwN64NstVObAXwKFVElFmvAEIvIQ6OOX36kZeqs4Hm4cg==",
-      "type": "package",
-      "path": "react.core/4.1.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/React.Core.dll",
-        "lib/net40/React.Core.xml",
-        "lib/net45/React.Core.dll",
-        "lib/net45/React.Core.xml",
-        "lib/netstandard1.6/React.Core.dll",
-        "lib/netstandard1.6/React.Core.xml",
-        "lib/netstandard2.0/React.Core.dll",
-        "lib/netstandard2.0/React.Core.xml",
-        "react.core.4.1.1.nupkg.sha512",
-        "react.core.nuspec"
       ]
     },
     "Remotion.Linq/2.2.0": {
@@ -13261,17 +13022,13 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "JavaScriptEngineSwitcher.ChakraCore >= 3.0.9",
-      "JavaScriptEngineSwitcher.ChakraCore.Native.win-x64 >= 3.0.9",
-      "JavaScriptEngineSwitcher.Core >= 3.0.0",
-      "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection >= 3.0.0",
+      "Microsoft.AspNet.WebApi >= 5.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.4",
       "Microsoft.NETCore.App >= 2.2.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.0",
-      "React.AspNet >= 4.1.1"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.0"
     ]
   },
   "packageFolders": {
@@ -13315,21 +13072,9 @@
     "frameworks": {
       "netcoreapp2.2": {
         "dependencies": {
-          "JavaScriptEngineSwitcher.ChakraCore": {
+          "Microsoft.AspNet.WebApi": {
             "target": "Package",
-            "version": "[3.0.9, )"
-          },
-          "JavaScriptEngineSwitcher.ChakraCore.Native.win-x64": {
-            "target": "Package",
-            "version": "[3.0.9, )"
-          },
-          "JavaScriptEngineSwitcher.Core": {
-            "target": "Package",
-            "version": "[3.0.0, )"
-          },
-          "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection": {
-            "target": "Package",
-            "version": "[3.0.0, )"
+            "version": "[5.0.0, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
@@ -13359,10 +13104,6 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.2.0, )"
-          },
-          "React.AspNet": {
-            "target": "Package",
-            "version": "[4.1.1, )"
           }
         },
         "imports": [
@@ -13372,5 +13113,27 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.2"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.WebHost 5.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.WebHost",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.2"
+      ]
+    }
+  ]
 }

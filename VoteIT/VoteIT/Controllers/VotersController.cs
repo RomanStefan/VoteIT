@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using VoteIT.Models;
 
 namespace VoteIT.Controllers
 {
-    public class VotersController : Controller
+
+    [Route("[controller]")]
+    [ApiController]
+    public class VotersController : ControllerBase
     {
         private readonly ApplicationContext _context;
 
@@ -18,135 +20,38 @@ namespace VoteIT.Controllers
             _context = context;
         }
 
-        // GET: Voters
-        public async Task<IActionResult> Index()
+        // GET: api/Voters
+        [HttpGet]
+        public IEnumerable<string> Get()
         {
-            return View(await _context.Voters.ToListAsync());
+            return new string[] { "value1", "value2" };
         }
 
-        // GET: Voters/Details/5
-        public async Task<IActionResult> Details(long? id)
+        // GET: api/Voters/5
+        [HttpGet("{cnp}", Name = "Get")]
+        public Voter Get(long? cnp)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var voter = await _context.Voters
-                .FirstOrDefaultAsync(m => m.Cnp == id);
-            if (voter == null)
-            {
-                return NotFound();
-            }
-
-            return View(voter);
+            var voter = _context.Voters
+                .FirstOrDefault(m => m.Cnp == cnp);
+            return voter; 
         }
 
-        // GET: Voters/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Voters/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: api/Voters
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Cnp,FirstName,LastName")] Voter voter)
+        public IHttpActionResult Post([FromBody] string value)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(voter);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(voter);
         }
 
-        // GET: Voters/Edit/5
-        public async Task<IActionResult> Edit(long? id)
+        // PUT: api/Voters/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var voter = await _context.Voters.FindAsync(id);
-            if (voter == null)
-            {
-                return NotFound();
-            }
-            return View(voter);
         }
 
-        // POST: Voters/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Cnp,FirstName,LastName")] Voter voter)
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            if (id != voter.Cnp)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(voter);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VoterExists(voter.Cnp))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(voter);
-        }
-
-        // GET: Voters/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var voter = await _context.Voters
-                .FirstOrDefaultAsync(m => m.Cnp == id);
-            if (voter == null)
-            {
-                return NotFound();
-            }
-
-            return View(voter);
-        }
-
-        // POST: Voters/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
-        {
-            var voter = await _context.Voters.FindAsync(id);
-            _context.Voters.Remove(voter);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool VoterExists(long id)
-        {
-            return _context.Voters.Any(e => e.Cnp == id);
         }
     }
 }
