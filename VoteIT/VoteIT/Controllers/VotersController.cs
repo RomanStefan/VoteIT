@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VoteIT.Models;
@@ -9,7 +10,7 @@ using VoteIT.Models;
 namespace VoteIT.Controllers
 {
 
-    [Route("[controller]")]
+    [Microsoft.AspNetCore.Mvc.Route("[controller]")]
     [ApiController]
     public class VotersController : ControllerBase
     {
@@ -21,14 +22,14 @@ namespace VoteIT.Controllers
         }
 
         // GET: api/Voters
-        [HttpGet]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Voters/5
-        [HttpGet("{cnp}", Name = "Get")]
+        // GET: api/Voters/cnp
+        [Microsoft.AspNetCore.Mvc.HttpGet("{cnp}", Name = "Get")]
         public Voter Get(long? cnp)
         {
             var voter = _context.Voters
@@ -37,19 +38,38 @@ namespace VoteIT.Controllers
         }
 
         // POST: api/Voters
-        [HttpPost]
-        public IHttpActionResult Post([FromBody] string value)
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        public void Post([Microsoft.AspNetCore.Mvc.FromBody] string value)
         {
         }
 
-        // PUT: api/Voters/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT: api/Voters/Voter
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        public ActionResult<IHttpActionResult> Put(Voter voter)
         {
+            if (!ModelState.IsValid)
+                return BadRequest("Not a valid model");
+
+            var existingVoter = _context.Voters
+                .FirstOrDefault(s => s.Cnp == voter.Cnp);
+
+            if (existingVoter != null)
+            {
+                existingVoter.FirstName = voter.FirstName;
+                existingVoter.LastName = voter.LastName;
+                existingVoter.Cnp = voter.Cnp;
+                _context.SaveChanges();
+            }
+            else
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
+        [Microsoft.AspNetCore.Mvc.HttpDelete("{id}")]
         public void Delete(int id)
         {
         }

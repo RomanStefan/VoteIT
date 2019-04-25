@@ -1,0 +1,11 @@
+﻿.heading-title {
+    height: 70px;
+    font-size: 20px;
+    background-color: yellow;
+}
+
+.btn {
+    background: aqua;
+    width: 100px;
+    border: solid black 1px;
+}

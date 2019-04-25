@@ -2,13 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "Microsoft.AspNet.WebApi/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "5.0.0"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.6": {
+      "Microsoft.AspNet.WebApi.Client/5.2.7": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "10.0.1",
@@ -21,28 +15,16 @@
           "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
         }
       },
-      "Microsoft.AspNet.WebApi.Core/5.0.0": {
+      "Microsoft.AspNet.WebApi.Core/5.2.7": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.0.0"
+          "Microsoft.AspNet.WebApi.Client": "5.2.7"
         },
         "compile": {
           "lib/net45/System.Web.Http.dll": {}
         },
         "runtime": {
           "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "5.0.0"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.2.0": {
@@ -4754,21 +4736,10 @@
     }
   },
   "libraries": {
-    "Microsoft.AspNet.WebApi/5.0.0": {
-      "sha512": "/07pinlu39FnRfx26rXb8Z8+nsIfa9DCKNEQcSRsYsW0UFfv6R+OdshZbXb6lD7aViLjDwx7vVFxM6MPaizU7Q==",
+    "Microsoft.AspNet.WebApi.Client/5.2.7": {
+      "sha512": "/76fAHknzvFqbznS6Uj2sOyE9rJB3PltY+f53TH8dX9RiGhk02EhuFCWljSj5nnqKaTsmma8DFR50OGyQ4yJ1g==",
       "type": "package",
-      "path": "microsoft.aspnet.webapi/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "microsoft.aspnet.webapi.5.0.0.nupkg.sha512",
-        "microsoft.aspnet.webapi.nuspec"
-      ]
-    },
-    "Microsoft.AspNet.WebApi.Client/5.2.6": {
-      "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
-      "type": "package",
-      "path": "microsoft.aspnet.webapi.client/5.2.6",
+      "path": "microsoft.aspnet.webapi.client/5.2.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4778,35 +4749,22 @@
         "lib/netstandard2.0/System.Net.Http.Formatting.xml",
         "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
         "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
-        "microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
+        "microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
         "microsoft.aspnet.webapi.client.nuspec"
       ]
     },
-    "Microsoft.AspNet.WebApi.Core/5.0.0": {
-      "sha512": "ZOVLLtFpSM8nkJopUM9upbJEUkAUS60j6Sj1hDKewHaekWMUnnoMX/i3Ee+7KgxMGk13yxxQRHtSwcjh1JpJ4w==",
+    "Microsoft.AspNet.WebApi.Core/5.2.7": {
+      "sha512": "gM2QzApnHdy1FbKUJ/ROGJSm69P2G+HMoVd/t5Vq1O/zZ5TI4IKC9PX6nUfRt/NHgebZOIWHpB4/4K4inuy4yQ==",
       "type": "package",
-      "path": "microsoft.aspnet.webapi.core/5.0.0",
+      "path": "microsoft.aspnet.webapi.core/5.2.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "content/web.config.transform",
+        "Content/web.config.transform",
         "lib/net45/System.Web.Http.dll",
         "lib/net45/System.Web.Http.xml",
-        "microsoft.aspnet.webapi.core.5.0.0.nupkg.sha512",
+        "microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
         "microsoft.aspnet.webapi.core.nuspec"
-      ]
-    },
-    "Microsoft.AspNet.WebApi.WebHost/5.0.0": {
-      "sha512": "mvgJ+xoWtDi9RrPFTwicV6xVx1EuNXjLJ19hxXGFHcYdHG3vvr+MI2p1tfN4WUO8SVrug+QHfarkjaucjSzRpw==",
-      "type": "package",
-      "path": "microsoft.aspnet.webapi.webhost/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/System.Web.Http.WebHost.dll",
-        "lib/net45/System.Web.Http.WebHost.xml",
-        "microsoft.aspnet.webapi.webhost.5.0.0.nupkg.sha512",
-        "microsoft.aspnet.webapi.webhost.nuspec"
       ]
     },
     "Microsoft.AspNetCore/2.2.0": {
@@ -13022,7 +12980,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "Microsoft.AspNet.WebApi >= 5.0.0",
+      "Microsoft.AspNet.WebApi.Core >= 5.2.7",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
@@ -13072,9 +13030,9 @@
     "frameworks": {
       "netcoreapp2.2": {
         "dependencies": {
-          "Microsoft.AspNet.WebApi": {
+          "Microsoft.AspNet.WebApi.Core": {
             "target": "Package",
-            "version": "[5.0.0, )"
+            "version": "[5.2.7, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
@@ -13119,18 +13077,8 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.2"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebApi.WebHost 5.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.WebApi.WebHost",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.2"
       ]

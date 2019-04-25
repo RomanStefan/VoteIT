@@ -13,27 +13,57 @@ namespace VoteIT.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<ApplicationContext>>()))
             {
-                // Look for any movies.
+                // Look for any voters.
                 if (context.Voters.Any())
                 {
                     return;   // DB has been seeded
                 }
+                else
+                {
+                    context.Voters.AddRange(
+                        new Voter
+                        {
+                            Cnp = 2920209226725,
+                            FirstName = "ROMAN",
+                            LastName = "ELENA-ALEXANDRA"
+                        },
 
-                context.Voters.AddRange(
-                    new Voter
+                        new Voter
+                        {
+                            Cnp = 2960613270022,
+                            FirstName = "MATIES",
+                            LastName = "PETRUTA"
+                        }
+                    );
+                }
+
+                // Look for any Candidate.
+                if (context.Candidates.Any())
+                {
+                    return;   // DB has been seeded
+                }
+
+                context.Candidates.AddRange(
+                    new Candidate
                     {
-                        Cnp = 2920209226725,
-                        FirstName = "ROMAN",
-                        LastName = "ELENA-ALEXANDRA"
+                        FirstName = "Ion",
+                        LastName = "Ion",
+                        CityId = 22,
+                        PersonalDescription = "I'm here to steal",
+                        PoliticalParty = "PSD"
                     },
 
-                    new Voter
+                    new Candidate
                     {
-                        Cnp = 2960613270022,
-                        FirstName = "MATIES",
-                        LastName = "PETRUTA"
+                        FirstName = "Victor",
+                        LastName = "Viorel",
+                        CityId = 22,
+                        PersonalDescription = "I'm here to steal from you",
+                        PoliticalParty = "PNL"
                     }
                 );
+
+
                 context.SaveChanges();
             }
         }
