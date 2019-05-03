@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VoteIT.Models;
+using System.IO;
+using System.Web;
+
 
 namespace VoteIT.Controllers
 {
@@ -21,29 +21,40 @@ namespace VoteIT.Controllers
             _context = context;
         }
 
-        // GET: api/Voters
+        // GET: Voters
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Voters/cnp
+        // GET: Voters/cnp
         [Microsoft.AspNetCore.Mvc.HttpGet("{cnp}", Name = "Get")]
         public Voter Get(long? cnp)
         {
             var voter = _context.Voters
                 .FirstOrDefault(m => m.Cnp == cnp);
-            return voter; 
+            return voter;
         }
 
-        // POST: api/Voters
-        [Microsoft.AspNetCore.Mvc.HttpPost]
-        public void Post([Microsoft.AspNetCore.Mvc.FromBody] string value)
+        public class TestModel
         {
+            public string UserName { get; set; }
+            public string Password { get; set; }
+            public MemoryStream SelectedImage { get; set; }
         }
 
-        // PUT: api/Voters/Voter
+        // POST: Voters
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        public ActionResult<IHttpActionResult> Post([System.Web.Http.FromBody] TestModel myModel )
+        {
+            //var username = HttpContext.Current.Request.Params["username"];
+            var test = myModel.SelectedImage;
+            return StatusCode(201);
+        }
+        
+
+        // PUT: Voters/Voter
         [Microsoft.AspNetCore.Mvc.HttpPut]
         public ActionResult<IHttpActionResult> Put(Voter voter)
         {
@@ -68,7 +79,7 @@ namespace VoteIT.Controllers
             return Ok();
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: ApiWithActions/5
         [Microsoft.AspNetCore.Mvc.HttpDelete("{id}")]
         public void Delete(int id)
         {
