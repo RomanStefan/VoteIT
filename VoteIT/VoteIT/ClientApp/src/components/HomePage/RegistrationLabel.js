@@ -70,8 +70,12 @@ export class Voters extends Component {
         this.state = {
             username: '',
             password: '',
-            selectedImage: null
+            selectedImage: null,
+            buffer: []
         };
+
+
+
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleImageChange = this.handleImageChange.bind(this);
@@ -90,26 +94,37 @@ export class Voters extends Component {
     }
 
     handleImageChange(evt) {
-        this.setState({ selectedImage: evt.target.files[0] });
-        console.log(evt.target.files[0]);
-    }
 
+        let reader = new FileReader();
+        reader.readAsDataURL(evt.target.files[0]);
+
+        let self = this;
+        reader.onload = function () {
+            self.setState({ buffer: reader.result });
+            console.log(reader.result);
+        };
+
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
+    }
 
     registerClick() {
         console.log("S-a apasat butonul din Voter");
-        /*var formData = new FormData();
-        formData.append("username", this.state.username);
-        formData.append("password", this.state.password); 
-        formData.append("selectedImage", this.state.selectedImage); */
-        const { username, password, selectedImage } = this.state;
+
+        console.log(this.handleImageChange);
+        
+
+        const { username, password, selectedImage, buffer } = this.state;
+        console.log(buffer);
+
         axios.post('https://localhost:44319/Voters', {
             username,
             password,
-            selectedImage
+            buffer
         }).then(res => {
             console.log(res);
-        });
-
+        }); 
     }
 
     render() {
