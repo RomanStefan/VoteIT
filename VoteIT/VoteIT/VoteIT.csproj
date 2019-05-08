@@ -28,6 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190508094506_Update Voters Table because new fields have been added.cs" />
+    <Compile Remove="Migrations\20190508094506_Update Voters Table because new fields have been added.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="images\" />
   </ItemGroup>
 

@@ -39,7 +39,7 @@ namespace VoteIT.Controllers
             return voter;
         }
 
-        public class TestModel
+        public class RegisterInformations
         {
             public string UserName { get; set; }
             public string Password { get; set; }
@@ -48,12 +48,24 @@ namespace VoteIT.Controllers
 
         // POST: Voters
         [Microsoft.AspNetCore.Mvc.HttpPost]
-        public  ActionResult<IHttpActionResult> Post([System.Web.Http.FromBody] TestModel myModel)
+        public  ActionResult<IHttpActionResult> Post([System.Web.Http.FromBody] RegisterInformations registerInformations)
         {
-            //var bytes = System.Text.Encoding.UTF8.GetBytes(myModel.Buffer);
-            var buffer = myModel.Buffer.Remove(0, 22);
+            var buffer = registerInformations.Buffer.Remove(0, 22);
             var bytes = System.Convert.FromBase64String(buffer);
-            System.IO.File.WriteAllBytes(@"D:\VoteIT\VoteIT\VoteIT\images\dump.bmp", bytes);
+            var imagePath = String.Format(@"D:\VoteIT\VoteIT\VoteIT\images\{0}.bmp", Guid.NewGuid());
+            System.IO.File.WriteAllBytes(imagePath, bytes);
+
+            var ocr = new OCR(imagePath);
+
+            Voter voter = new Voter();
+            voter.Cnp = long.Parse(ocr.Cnp);
+            voter.FirstName = ocr.FirstName;
+            voter.LastName = ocr.LastName;
+            voter.UserName = registerInformations.UserName;
+            voter.Password = registerInformations.Password;
+
+            _context.Voters.Add(voter);
+            _context.SaveChanges();
 
             return StatusCode(201);
         } 
