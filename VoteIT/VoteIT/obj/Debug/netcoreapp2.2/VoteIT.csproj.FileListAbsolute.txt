@@ -50,3 +50,5 @@ D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.Views.pdb
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.dll
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.pdb
 D:\VoteIT\VoteIT\VoteIT\obj\Debug\netcoreapp2.2\VoteIT.csproj.CopyComplete
+D:\VoteIT\VoteIT\VoteIT\bin\Debug\netcoreapp2.2\ClientApp\src\resources\login.png
+D:\VoteIT\VoteIT\VoteIT\bin\Debug\netcoreapp2.2\ClientApp\src\resources\accountlogin-icon.png

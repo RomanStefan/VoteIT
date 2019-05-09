@@ -145,40 +145,110 @@ export class Voters extends Component {
                 </div>
 
 
-                <button type="submit" className="btn btn-default" onClick={this.registerClick}>Register</button>
+                <button class="button_register" type="submit" onClick={this.registerClick}>Register</button>
             </form>
         );
     }
 }
 
 export class Candidates extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            firstName: '',
+            lastName: '',
+            userName: '',
+            password: '',
+            personalDescription: '',
+            politicalParty:''
+        };
+
+
+
+        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+        this.handleLastNameChange = this.handleLastNameChange.bind(this);
+        this.handleUserNameChange = this.handleUserNameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handlePersonalDescriptionChange = this.handlePersonalDescriptionChange.bind(this);
+        this.handlePoliticalPartyChange = this.handlePoliticalPartyChange.bind(this);
+
+        this.registerClick = this.registerClick.bind(this);
+    }
+
+    handleFirstNameChange(evt) {
+        this.setState({ firstName: evt.target.value });
+        console.log(evt.target.value);
+    }
+
+    handleLastNameChange(evt) {
+        this.setState({ lastName: evt.target.value });
+        console.log(evt.target.value);
+    }
+
+    handleUserNameChange(evt) {
+        this.setState({ userName: evt.target.value });
+        console.log(evt.target.value);
+    }
+
+    handlePasswordChange(evt) {
+        this.setState({ password: evt.target.value });
+        console.log(evt.target.value);
+    }
+
+    handlePersonalDescriptionChange(evt) {
+        this.setState({ personalDescription: evt.target.value });
+        console.log(evt.target.value);
+    }
+
+    handlePoliticalPartyChange(evt) {
+        this.setState({ politicalParty: evt.target.value });
+        console.log(evt.target.value);
+    }
+
+    registerClick() {
+        console.log("S-a apasat butonul din Candidate");
+
+        const { firstName, lastName, userName, password, personalDescription, politicalParty } = this.state;
+
+        axios.post('https://localhost:44319/Candidates', {
+            firstName,
+            lastName,
+            userName,
+            password,
+            personalDescription,
+            politicalParty
+        }).then(res => {
+            console.log(res);
+        }); 
+    }
+
     render() {
         return (
             <form>
                 <h2>Candidates Registration</h2>
                 <div className="form-group">
                     <label>First Name:</label>
-                    <input type="text" className="form-control" id="firstName" />
+                    <input type="text" className="form-control" id="firstName" onChange={this.handleFirstNameChange} />
                 </div>
                 <div className="form-group">
                     <label>last Name:</label>
-                    <input type="text" className="form-control" id="lastName" />
+                    <input type="text" className="form-control" id="lastName" onChange={this.handleLastNameChange} />
                 </div>
                 <div className="form-group">
                     <label>Username:</label>
-                    <input type="username" className="form-control" id="username" />
+                    <input type="username" className="form-control" id="username" onChange={this.handleUserNameChange} />
                 </div>
                 <div className="form-group">
                     <label>Password:</label>
-                    <input type="password" className="form-control" id="pwd" />
+                    <input type="password" className="form-control" id="pwd" onChange={this.handlePasswordChange} />
                 </div>
                 <div className="form-group">
                     <label>Personal Description:</label>
-                    <input type="text" className="form-control" id="persDescription" />
+                    <input type="text" className="form-control" id="persDescription" onChange={this.handlePersonalDescriptionChange} />
                 </div>
                 <FormGroup>
                     <Label for="SelectParty">Political Party</Label>
-                    <Input type="select" name="select" id="party">
+                    <Input type="select" name="select" id="party" onChange={this.handlePoliticalPartyChange} >
                         <option>PSD</option>
                         <option>PNL</option>
                         <option>USR</option>
@@ -186,7 +256,7 @@ export class Candidates extends Component {
                 </FormGroup>
 
 
-                <button type="submit" className="btn btn-default">Register</button>
+                <button class="button_register" type="submit"  onClick={this.registerClick}>Register</button>
             </form>
         )
     };

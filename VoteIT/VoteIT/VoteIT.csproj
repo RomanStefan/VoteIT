@@ -33,7 +33,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\resources\" />
     <Folder Include="images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\src\resources\accountlogin-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ClientApp\src\resources\login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

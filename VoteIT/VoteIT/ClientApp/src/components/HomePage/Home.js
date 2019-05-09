@@ -8,11 +8,8 @@ export class Home extends Component {
   render () {
       return (
           <div id="Register_Label">
-              <h2>Register</h2>
-
               <RegistrationLabel/>
           </div>
-
     );
   }
 }

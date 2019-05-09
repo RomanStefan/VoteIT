@@ -4,8 +4,12 @@
     background-color: yellow;
 }
 
-.btn {
-    background: white;
-    width: 100px;
-    border: solid black 1px;
+#button_register {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }

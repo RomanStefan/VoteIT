@@ -36,5 +36,24 @@ namespace VoteIT.Controllers
                 .FirstOrDefault(m => m.Id == id);
             return candidate;
         } */
+
+        // POST: Candidates
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        public  ActionResult<IHttpActionResult> Post([System.Web.Http.FromBody] Candidate candidate)
+        {
+
+            Candidate newCandidate = new Candidate();
+            newCandidate.FirstName = candidate.FirstName;
+            newCandidate.LastName = candidate.LastName;
+            newCandidate.UserName = candidate.UserName;
+            newCandidate.Password = candidate.Password;
+            newCandidate.PersonalDescription = candidate.PersonalDescription;
+            newCandidate.PoliticalParty = candidate.PoliticalParty;
+
+            _context.Candidates.Add(candidate);
+            _context.SaveChanges();
+
+            return StatusCode(201);
+        } 
     }
 }
