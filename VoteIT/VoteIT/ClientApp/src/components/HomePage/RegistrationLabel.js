@@ -118,7 +118,7 @@ export class Voters extends Component {
         const { username, password, selectedImage, buffer } = this.state;
         console.log(buffer);
 
-        axios.post('https://localhost:44319/Voters', {
+        axios.post('https://localhost:44319/Users/PostVoterUser', {
             username,
             password,
             buffer
@@ -145,7 +145,7 @@ export class Voters extends Component {
                 </div>
 
 
-                <button class="button_register" type="submit" onClick={this.registerClick}>Register</button>
+                <button className="button_register" type="submit" onClick={this.registerClick}>Register</button>
             </form>
         );
     }
@@ -160,7 +160,7 @@ export class Candidates extends Component {
             userName: '',
             password: '',
             personalDescription: '',
-            politicalParty:''
+            politicalParty: 'PSD'
         };
 
 
@@ -210,7 +210,7 @@ export class Candidates extends Component {
 
         const { firstName, lastName, userName, password, personalDescription, politicalParty } = this.state;
 
-        axios.post('https://localhost:44319/Candidates', {
+        axios.post('https://localhost:44319/Users/PostCandidateUser', {
             firstName,
             lastName,
             userName,
@@ -256,7 +256,7 @@ export class Candidates extends Component {
                 </FormGroup>
 
 
-                <button class="button_register" type="submit"  onClick={this.registerClick}>Register</button>
+                <button className="button_register" type="submit"  onClick={this.registerClick}>Register</button>
             </form>
         )
     };

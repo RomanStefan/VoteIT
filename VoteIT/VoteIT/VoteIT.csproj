@@ -38,9 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ClientApp\src\resources\accountlogin-icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="ClientApp\src\resources\login.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
