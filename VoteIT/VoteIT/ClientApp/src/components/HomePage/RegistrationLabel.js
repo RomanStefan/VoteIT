@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col, FormGroup, FormControl, Label, Input } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input } from 'reactstrap';
 import classnames from 'classnames';
 import './RegistrationLabel.css';
 import axios from 'axios';
@@ -111,9 +111,6 @@ export class Voters extends Component {
 
     registerClick() {
         console.log("S-a apasat butonul din Voter");
-
-        console.log(this.handleImageChange);
-        
 
         const { username, password, selectedImage, buffer } = this.state;
         console.log(buffer);

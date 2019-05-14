@@ -1,3 +1,7 @@
 *.bmp
 *.dll
 *.pdb
+*.sui
+*.storage.ide
+*.storage.ide-shm
+*.storage.ide-wal

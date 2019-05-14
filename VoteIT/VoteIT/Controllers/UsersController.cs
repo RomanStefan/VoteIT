@@ -18,6 +18,32 @@ namespace VoteIT.Controllers
             _context = context;
         }
 
+        public class loginInformation
+        {
+            public string UserName { get; set; }
+            public string Password { get; set; }
+        }
+
+        [Microsoft.AspNetCore.Mvc.Route("GetUserByUsernameAndPassword")]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+
+        public ActionResult<IHttpActionResult> GetUser([System.Web.Http.FromBody] loginInformation logininformation)
+        {
+            var user = _context.Users.FirstOrDefault((u) => u.UserName == logininformation.UserName);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            if(!String.Equals(user.Password, logininformation.Password))
+            {
+
+            }
+
+            return Ok(user);
+        }
+
+
         public class RegisterInformations
         {
             public string UserName { get; set; }
