@@ -1,12 +1,15 @@
 ﻿import React, { Component } from 'react';
 import './LoginPage.css';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+
 export class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            user: ''
         };
 
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -33,12 +36,35 @@ export class Login extends Component {
             username,
             password
         }).then(res => {
-            console.log(res);
-        }); 
-    }
-
+            const user = res.data;
+            this.setState({ user: res.data });
+            //localStorage.setItem('user', res.data);
+            if (this.state.user.userType === 1) {
+                this.props.history.push('/voter');
+                console.log("A intrat pe cazul Voter!");
+            }
+            else if (this.state.user.userType === 2)
+                this.props.history.push('/candidate');
+            else
+                this.props.history.push('/admin'); 
+            });
+    } 
 
     render() {
+        /*console.log(this.state.user.userType);
+        console.log(typeof this.state.user.userType);
+
+        switch (this.state.user.userType) {
+            case 1:
+                return (<Redirect to='/voter' />);
+                console.log("A intrat pe cazul Voter!");
+                break;
+            case 2:
+                return (<Redirect to='/candidate' />);
+            case 0:
+                return (<Redirect to='/admin' />);
+                break;   
+        } */
         return (
             <form>
                 <div className="imgcontainer">
