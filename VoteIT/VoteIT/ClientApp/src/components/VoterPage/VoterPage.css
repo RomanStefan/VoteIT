@@ -1,0 +1,19 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    height: 270px; /* Should be removed. Only for demonstration */
+    background-color: #ddd;
+    border: 4px solid white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

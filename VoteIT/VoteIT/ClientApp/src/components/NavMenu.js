@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import loginLogo from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/Login.ico';
 import './NavMenu.css';
 
 export class NavMenu extends Component {

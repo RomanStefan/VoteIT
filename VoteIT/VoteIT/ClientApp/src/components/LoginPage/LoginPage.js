@@ -2,14 +2,14 @@
 import './LoginPage.css';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import logo from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/login.png';
 
 export class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
-            password: '',
-            user: ''
+            password: ''
         };
 
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -29,46 +29,47 @@ export class Login extends Component {
     }
 
     loginClick() {
-        console.log("S-a apasat butonul din login");
         const { username, password } = this.state;
 
         axios.post('https://localhost:44319/Users/GetUserByUsernameAndPassword', {
             username,
             password
         }).then(res => {
-            const user = res.data;
-            this.setState({ user: res.data });
-            //localStorage.setItem('user', res.data);
-            if (this.state.user.userType === 1) {
-                this.props.history.push('/voter');
-                console.log("A intrat pe cazul Voter!");
-            }
-            else if (this.state.user.userType === 2)
-                this.props.history.push('/candidate');
-            else
-                this.props.history.push('/admin'); 
+             localStorage.setItem('user', JSON.stringify(res.data));
             });
+        var user = JSON.parse(localStorage.getItem('user'));
+        if (user.userType === 1) {
+            this.props.history.push('/voter');
+            console.log("A intrat pe cazul Voter!");
+        }
+        else if (user.userType === 2) {
+            this.props.history.push('/candidate');
+        }
+        else
+            this.props.history.push('/admin'); 
     } 
 
     render() {
-        /*console.log(this.state.user.userType);
-        console.log(typeof this.state.user.userType);
 
-        switch (this.state.user.userType) {
+        /*var userObject = JSON.parse(window.localStorage.getItem('user'));
+        console.log(userObject.userType);
+
+        switch (userObject.userType) {
             case 1:
-                return (<Redirect to='/voter' />);
+                return <Redirect to='/voter' />;
                 console.log("A intrat pe cazul Voter!");
                 break;
             case 2:
-                return (<Redirect to='/candidate' />);
+                return <Redirect to='/candidate' />;
+                break;
             case 0:
-                return (<Redirect to='/admin' />);
+                return <Redirect to='/admin' />;
                 break;   
         } */
         return (
             <form>
                 <div className="imgcontainer">
-                    <img src="D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/login.png" alt="Avatar" className="avatar"/>
+                    <img src={logo} alt="Avatar" className="avatar"/>
                 </div>
 
                 <div className="container">
