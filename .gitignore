@@ -6,3 +6,5 @@
 *.storage.ide-shm
 *.storage.ide-wal
 *.csproj
+*.suo
+*.cache

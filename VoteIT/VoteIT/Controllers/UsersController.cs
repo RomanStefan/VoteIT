@@ -18,6 +18,14 @@ namespace VoteIT.Controllers
             _context = context;
         }
 
+        // GET: AllCandidates
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        public IList<User> GetAllCandidates()
+        {
+            var candidates = _context.Users.Where(candidate => candidate.UserType == 2);
+            return candidates.ToList();
+        }
+
         public class loginInformation
         {
             public string UserName { get; set; }

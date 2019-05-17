@@ -8,8 +8,6 @@ namespace VoteIT.Models
         {
         }
 
-        public DbSet<Voter> Voters { get; set; }
-        public DbSet<Candidate> Candidates { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<User> Users { get; set; }
     }

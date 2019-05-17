@@ -2,6 +2,7 @@
 import './LoginPage.css';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import { NavMenu } from './../NavMenu';
 import logo from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/login.png';
 
 export class Login extends Component {
@@ -67,21 +68,24 @@ export class Login extends Component {
                 break;   
         } */
         return (
-            <form>
-                <div className="imgcontainer">
-                    <img src={logo} alt="Avatar" className="avatar"/>
-                </div>
+            <div>
+                <NavMenu />
+                <form>
+                    <div className="imgcontainer">
+                        <img src={logo} alt="Avatar" className="avatar" />
+                    </div>
 
-                <div className="container">
-                    <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required onChange={this.handleUsernameChange}/>
+                    <div className="container">
+                        <label><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required onChange={this.handleUsernameChange} />
 
-                    <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required onChange={this.handlePasswordChange}/>
+                        <label><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required onChange={this.handlePasswordChange} />
 
-                    <button type="submit" onClick={this.loginClick}>Login</button>
-                </div>
-            </form>
+                        <button type="submit" onClick={this.loginClick}>Login</button>
+                    </div>
+                </form>
+            </div>
         );
     }
 }
