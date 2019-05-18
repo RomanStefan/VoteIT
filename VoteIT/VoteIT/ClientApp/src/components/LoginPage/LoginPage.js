@@ -8,9 +8,15 @@ import logo from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/login.png';
 export class Login extends Component {
     constructor(props) {
         super(props);
+        var user = JSON.parse(localStorage.getItem('user'));
+        let userType = null;
+        if (user && user.userType ) {
+            userType = user.userType;
+        }
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            userType: userType
         };
 
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -36,26 +42,25 @@ export class Login extends Component {
             username,
             password
         }).then(res => {
-             localStorage.setItem('user', JSON.stringify(res.data));
-            });
-        var user = JSON.parse(localStorage.getItem('user'));
-        if (user.userType === 1) {
-            this.props.history.push('/voter');
-            console.log("A intrat pe cazul Voter!");
-        }
-        else if (user.userType === 2) {
-            this.props.history.push('/candidate');
-        }
-        else
-            this.props.history.push('/admin'); 
+            localStorage.setItem('user', JSON.stringify(res.data));
+            this.setState({ userType: res.data.userType });
+            /*var user = JSON.parse(localStorage.getItem('user'));
+            if (user.userType === 1) {
+                this.props.history.push('/voter');
+                console.log("A intrat pe cazul Voter!");
+            }
+            else if (user.userType === 2) {
+                this.props.history.push('/candidate');
+            }
+            else
+                this.props.history.push('/admin'); */
+            }); 
+
     } 
 
     render() {
-
-        /*var userObject = JSON.parse(window.localStorage.getItem('user'));
-        console.log(userObject.userType);
-
-        switch (userObject.userType) {
+        console.log(this.state.userType);
+        switch (this.state.userType) {
             case 1:
                 return <Redirect to='/voter' />;
                 console.log("A intrat pe cazul Voter!");
@@ -63,29 +68,29 @@ export class Login extends Component {
             case 2:
                 return <Redirect to='/candidate' />;
                 break;
-            case 0:
-                return <Redirect to='/admin' />;
-                break;   
-        } */
-        return (
-            <div>
-                <NavMenu />
-                <form>
-                    <div className="imgcontainer">
-                        <img src={logo} alt="Avatar" className="avatar" />
+            default:
+                return (
+                    <div>
+                        <NavMenu />
+                        <form>
+                            <div className="imgcontainer">
+                                <img src={logo} alt="Avatar" className="avatar" />
+                            </div>
+
+                            <div className="container">
+                                <label><b>Username</b></label>
+                                <input type="text" placeholder="Enter Username" name="uname" required onChange={this.handleUsernameChange} />
+
+                                <label><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="psw" required onChange={this.handlePasswordChange} />
+
+                                <button type="submit" onClick={this.loginClick}>Login</button>
+                            </div>
+                        </form>
                     </div>
+                );
 
-                    <div className="container">
-                        <label><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required onChange={this.handleUsernameChange} />
+        }
 
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required onChange={this.handlePasswordChange} />
-
-                        <button type="submit" onClick={this.loginClick}>Login</button>
-                    </div>
-                </form>
-            </div>
-        );
     }
 }

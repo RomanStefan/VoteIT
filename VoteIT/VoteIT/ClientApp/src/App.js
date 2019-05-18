@@ -6,6 +6,9 @@ import { Login } from './components/LoginPage/LoginPage'
 import { Voter } from './components/VoterPage/VoterPage'
 import { Candidate } from './components/CandidatePage/CandidatePage'
 import { Admin } from './components/AdminPage/AdminPage'
+import { Presidential } from './components/VoterPage/PresidentialElections'
+import { Local } from './components/VoterPage/LocalElections'
+
 
 export default class App extends Component {
   static displayName = App.name;
@@ -15,6 +18,8 @@ export default class App extends Component {
       <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
+        <Route path='/voters/presidential' component={Presidential} />
+        <Route path='/voters/local' component={Local} />
         <Route path='/voter' component={Voter} />
         <Route path='/candidate' component={Candidate} />
         <Route path='/admin' component={Admin} />

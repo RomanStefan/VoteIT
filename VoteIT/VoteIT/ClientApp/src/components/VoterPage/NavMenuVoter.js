@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Button, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import loginLogo from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/Login.ico';
 import './NavMenuVoter.css';
@@ -11,6 +11,7 @@ export class NavMenuVoter extends Component {
         super(props);
 
         this.toggleNavbar = this.toggleNavbar.bind(this);
+        this.Logout = this.Logout.bind(this);
         this.state = {
             collapsed: true
         };
@@ -22,23 +23,27 @@ export class NavMenuVoter extends Component {
         });
     }
 
+    Logout() {
+        localStorage.removeItem('user');
+    }
+
     render() {
         return (
             <header>
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                     <Container>
-                        <NavbarBrand tag={Link} to="/">VoteIT</NavbarBrand>
+                        <NavbarBrand tag={Link} to="/voter">VoteIT</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/">Local Elections</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/voters/local">Local Elections</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/login">Presidential Elections</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/voters/presidential">Presidential Elections</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/login">Euro-parliamentary Elections</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/login" onClick={this.Logout}>Logout</NavLink>
                                 </NavItem>
                             </ul>
                         </Collapse>
