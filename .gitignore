@@ -8,3 +8,5 @@
 *.csproj
 *.suo
 *.cache
+VoteIT/node_modules/
+VoteIT/.vs/VoteIT/

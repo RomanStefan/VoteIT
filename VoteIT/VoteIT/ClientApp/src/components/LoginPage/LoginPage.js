@@ -44,16 +44,6 @@ export class Login extends Component {
         }).then(res => {
             localStorage.setItem('user', JSON.stringify(res.data));
             this.setState({ userType: res.data.userType });
-            /*var user = JSON.parse(localStorage.getItem('user'));
-            if (user.userType === 1) {
-                this.props.history.push('/voter');
-                console.log("A intrat pe cazul Voter!");
-            }
-            else if (user.userType === 2) {
-                this.props.history.push('/candidate');
-            }
-            else
-                this.props.history.push('/admin'); */
             }); 
 
     } 

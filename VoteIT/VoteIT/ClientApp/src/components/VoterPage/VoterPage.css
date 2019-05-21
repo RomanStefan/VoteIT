@@ -11,6 +11,32 @@
     border: 4px solid white;
 }
 
+.modalBox {
+    position: fixed;
+    top: 35%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#ModalBoxCloseButton{
+    width:50%;
+    background-color: red;
+}
+
+#ModalBoxSendVoteButton {
+    width: 50%;
+    background-color: #4CAF50;
+}
+
+.column:hover {
+    background-color: skyblue;
+    transition: linear 500ms;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";
