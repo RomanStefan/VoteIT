@@ -10,3 +10,5 @@
 *.cache
 VoteIT/node_modules/
 VoteIT/.vs/VoteIT/
+../OCR/OCR/bin
+../OCR/.vs/

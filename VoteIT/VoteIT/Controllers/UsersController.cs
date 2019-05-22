@@ -26,6 +26,15 @@ namespace VoteIT.Controllers
             return candidates.ToList();
         }
 
+        // POST: GetCandidatesByCity
+        [Microsoft.AspNetCore.Mvc.Route("GetUsersByCityId")]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
+        public IList<User> GetCandidateByCityId(int cityId)
+        {
+            var candidates = _context.Users.Where(candidate => candidate.UserType == 2 && candidate.CityId == cityId);
+            return candidates.ToList();
+        }
+
         public class loginInformation
         {
             public string UserName { get; set; }
@@ -75,6 +84,7 @@ namespace VoteIT.Controllers
             user.Cnp = long.Parse(ocr.Cnp);
             user.FirstName = ocr.FirstName;
             user.LastName = ocr.LastName;
+            user.CityId = int.Parse(ocr.CityId);
             user.UserName = registerInformations.UserName;
             user.Password = registerInformations.Password;
             user.UserType = 1;
@@ -106,5 +116,6 @@ namespace VoteIT.Controllers
 
             return StatusCode(201);
         }
+
     }
 }

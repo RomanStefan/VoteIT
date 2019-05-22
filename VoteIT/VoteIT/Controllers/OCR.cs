@@ -11,6 +11,7 @@ namespace VoteIT.Controllers
         private string _firstName;
         private string _lastName;
         private string _cnp;
+        private string _cityId;
 
         public string FirstName
         {
@@ -33,6 +34,14 @@ namespace VoteIT.Controllers
             get
             {
                 return _cnp;
+            }
+        }
+
+        public string CityId
+        {
+            get
+            {
+                return _cityId;
             }
         }
 
@@ -112,6 +121,7 @@ namespace VoteIT.Controllers
 
             //Formarea cnp-ului si verificarea validitatii lui
             _cnp = getCNP(informationBar);
+            _cityId = _cnp.Substring(7, 2);
             bool valideCNP = validateCNP(_cnp);
             //Console.WriteLine("CNP:{0} valid: {1}", CNP, valideCNP);
         }
