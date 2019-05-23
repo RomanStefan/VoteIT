@@ -26,12 +26,18 @@ namespace VoteIT.Controllers
             return candidates.ToList();
         }
 
+        public class CandidateInformations
+        {
+            public int cityId { get; set; }
+            public string name { get; set; }
+        }
+
         // POST: GetCandidatesByCity
         [Microsoft.AspNetCore.Mvc.Route("GetUsersByCityId")]
         [Microsoft.AspNetCore.Mvc.HttpPost]
-        public IList<User> GetCandidateByCityId(int cityId)
+        public IList<User> GetUsersByCityId([System.Web.Http.FromBody] CandidateInformations candidateInformations)
         {
-            var candidates = _context.Users.Where(candidate => candidate.UserType == 2 && candidate.CityId == cityId);
+            var candidates = _context.Users.Where(candidate => candidate.UserType == 2 && candidate.CityId == candidateInformations.cityId);
             return candidates.ToList();
         }
 

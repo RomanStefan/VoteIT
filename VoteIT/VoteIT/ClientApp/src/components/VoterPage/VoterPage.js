@@ -6,7 +6,6 @@ import axios from 'axios';
 export class Voter extends Component {
     render() {
         var user = JSON.parse(localStorage.getItem('user'));
-        console.log(user.userType);
         return (
             <div>
                 <NavMenuVoter/>
