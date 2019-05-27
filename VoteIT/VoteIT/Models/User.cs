@@ -28,6 +28,11 @@ namespace VoteIT.Models
 
         public string PoliticalParty { get; set; }
 
+        public int SesionId { get; set; }
+
         public int UserType { get; set; }
+
+
+
     }
 }

@@ -47,7 +47,7 @@ export class Local extends Component {
         var voterId = voter.id;
         var candidateId = candidateToBeVoted.id;
         var sesionId = 1;
-
+        var cityId = voter.cityId;
 
         var today = new Date();
         var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
@@ -58,7 +58,8 @@ export class Local extends Component {
             voterId,
             candidateId,
             sesionId,
-            dateTime
+            dateTime,
+            cityId
         }).then(res => {
             console.log(res);
             this.setState({ showModal: false });

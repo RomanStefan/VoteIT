@@ -55,6 +55,8 @@ namespace VoteIT.Migrations
 
                     b.Property<string>("PoliticalParty");
 
+                    b.Property<int>("SesionId");
+
                     b.Property<string>("UserName")
                         .IsRequired();
 
@@ -72,6 +74,8 @@ namespace VoteIT.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CandidateId");
+
+                    b.Property<int>("CityId");
 
                     b.Property<DateTime>("SesionDate");
 

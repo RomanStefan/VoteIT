@@ -38,6 +38,7 @@ namespace VoteIT.Controllers
             newVote.CandidateId = votingHistory.CandidateId;
             newVote.SesionId = votingHistory.SesionId;
             newVote.SesionDate = votingHistory.SesionDate;
+            newVote.CityId = votingHistory.CityId;
 
             _context.VotingsHistory.Add(newVote);
             _context.SaveChanges();

@@ -14,6 +14,8 @@ namespace VoteIT.Models
 
         public int SesionId { get; set; }
 
+        public int CityId { get; set; }
+
         public DateTime SesionDate { get; set; }
     }
 }

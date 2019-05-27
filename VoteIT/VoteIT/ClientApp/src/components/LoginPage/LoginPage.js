@@ -58,6 +58,9 @@ export class Login extends Component {
             case 2:
                 return <Redirect to='/candidate' />;
                 break;
+            case 3:
+                return <Redirect to='/admin' />;
+                break;
             default:
                 return (
                     <div>
