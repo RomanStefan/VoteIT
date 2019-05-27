@@ -123,5 +123,38 @@ namespace VoteIT.Controllers
             return StatusCode(201);
         }
 
+
+        public class editCandidate
+        {
+            public int candidateId { get; set; }
+            public string PersonalDescription { get; set; }
+            public string PoliticalParty { get; set; }
+            public int SesionId { get; set; }
+        }
+
+        // PUT: Candidates
+        [Microsoft.AspNetCore.Mvc.Route("UpdateCandidateProfile")]
+        [Microsoft.AspNetCore.Mvc.HttpPut]
+        public ActionResult<IHttpActionResult> UpdateCandidateProfile([System.Web.Http.FromBody] editCandidate editCandidate)
+        {
+
+            var user = _context.Users.FirstOrDefault((u) => u.Id == editCandidate.candidateId);
+            if (user != null)
+            {
+                user.PersonalDescription = editCandidate.PersonalDescription;
+                user.PoliticalParty = editCandidate.PoliticalParty;
+                user.SesionId = editCandidate.SesionId;
+
+                _context.SaveChanges();
+            }
+            else
+            {
+                return NotFound();
+            }
+           
+           
+            return StatusCode(200);
+        }
+
     }
 }
