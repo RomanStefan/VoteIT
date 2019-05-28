@@ -2,18 +2,27 @@
 import { Collapse, Button, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenuCandidate.css';
+import { slide as Menu } from 'react-burger-menu'
+import sidebarLogo from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/menu.png';
 
 export class NavMenuCandidate extends Component {
     static displayName = NavMenuCandidate.name;
 
     constructor(props) {
         super(props);
+        this.state = {
+            collapsed: true,
+            menuOpen: false
 
+        };
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.Logout = this.Logout.bind(this);
-        this.state = {
-            collapsed: true
-        };
+        this.showSettings = this.showSettings.bind(this);
+    }
+
+    showSettings(event){
+        event.preventDefault();
+        console.log('test');
     }
 
     toggleNavbar() {
@@ -24,25 +33,50 @@ export class NavMenuCandidate extends Component {
 
     Logout() {
         localStorage.removeItem('user');
-    } 
+    }
+
+    handleStateChange(state) {
+        this.setState({ menuOpen: state.isOpen })
+    }
+
+   
+    closeMenu() {
+        this.setState({ menuOpen: false })
+    }
+
+    toggleMenu() {
+        this.setState(state => ({ menuOpen: !state.menuOpen }))
+    }
+
 
     render() {
         return (
-            <header>
-                <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
-                    <Container>
-                        <NavbarBrand tag={Link} to="/candidate">VoteIT</NavbarBrand>
-                        <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-                        <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-                            <ul className="navbar-nav flex-grow">
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/login" onClick={this.Logout}>Logout</NavLink>
-                                </NavItem>
-                            </ul>
-                        </Collapse>
-                    </Container>
-                </Navbar>
-            </header>
+            <div className="container-fluid">
+                <nav className="navbar navbar-expand-xl navbar-light">
+                    <div className="row row-header">
+                        <div className="col-2">
+                            <Menu width= {'300px'}
+                            isOpen={false}>
+                                <a id="home" className="menu-item" href="/">Home</a>
+                                <a id="about" className="menu-item" href="/about">About</a>
+                                <a id="contact" className="menu-item" href="/contact">Contact</a>
+                            </Menu>
+                            <button type="button" className="btn button-sidebar" onClick={this.openSideBar}>
+                                <img src={sidebarLogo} alt="Menu" className="menu-icon" />
+                            </button>
+                        </div>
+                        <div className="col-3">
+                          <a href="#">Test 1</a>
+                        </div>
+                        <div className="col-3">
+                            <a href="#">Test 2</a>
+                        </div>
+                        <div className="col-3">
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+                </nav>
+                </div>
         );
     }
 }
