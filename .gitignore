@@ -8,11 +8,10 @@
 *.csproj
 *.suo
 *.cache
-VoteIT/node_modules/
 VoteIT/.vs/VoteIT/
 VoteIT/VoteIT/bin/
 VoteIT/VoteIT/obj/
 ../OCR/OCR/bin
 ../OCR/.vs/
 OCR/
-*.json
+VoteIT/node_modules/
