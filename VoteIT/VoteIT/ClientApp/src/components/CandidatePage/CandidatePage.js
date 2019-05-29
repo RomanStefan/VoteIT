@@ -7,7 +7,7 @@ export class Candidate extends Component {
         return (
             <div>
                 <NavMenuCandidate />
-                <h2>Candidate Page</h2>
+                <h2 >Candidate Page</h2>
             </div>
         );
     }

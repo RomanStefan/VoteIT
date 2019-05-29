@@ -18,6 +18,7 @@ export class NavMenuCandidate extends Component {
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.Logout = this.Logout.bind(this);
         this.showSettings = this.showSettings.bind(this);
+        this.toggleSidebar = this.toggleSidebar.bind(this);
     }
 
     showSettings(event){
@@ -48,31 +49,35 @@ export class NavMenuCandidate extends Component {
         this.setState(state => ({ menuOpen: !state.menuOpen }))
     }
 
+    toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle('active');
+    }
 
     render() {
         return (
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-xl navbar-light">
                     <div className="row row-header">
-                        <div className="col-2">
-                            <Menu width= {'300px'}
-                            isOpen={false}>
-                                <a id="home" className="menu-item" href="/">Home</a>
-                                <a id="about" className="menu-item" href="/about">About</a>
-                                <a id="contact" className="menu-item" href="/contact">Contact</a>
-                            </Menu>
-                            <button type="button" className="btn button-sidebar" onClick={this.openSideBar}>
-                                <img src={sidebarLogo} alt="Menu" className="menu-icon" />
-                            </button>
+                        <div id="sidebar">
+                            <div class="toggle-btn" onClick={this.toggleSidebar}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <ul>
+                                <li><a href="/candidates/editProfile">Register for new sesions</a></li>
+                                <li>APARTMENTS</li>
+                                <li>About</li>
+                            </ul>
                         </div>
-                        <div className="col-3">
+                        <div className="col-4">
                           <a href="#">Test 1</a>
                         </div>
-                        <div className="col-3">
+                        <div className="col-4">
                             <a href="#">Test 2</a>
                         </div>
-                        <div className="col-3">
-                            <a href="#">Logout</a>
+                        <div className="col-4">
+                            <a href="/" onClick={this.Logout}>Logout</a>
                         </div>
                     </div>
                 </nav>
