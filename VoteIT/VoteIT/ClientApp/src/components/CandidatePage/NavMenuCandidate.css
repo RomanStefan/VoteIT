@@ -1,56 +1,54 @@
-﻿* {
-    margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
-}
-
-#sidebar{
+﻿.toolbar{
     position:fixed;
-    width: 200px;
-    height: 100%;
-    background: #151719;
-    left: -200px;
-    transition: all 500ms linear;
-}
-
-#sidebar.active{
-    left: 0px;
-}
-
-#sidebar ul li{
-    color: rgba(230, 230, 230, 0.9);
-    list-style: none;
-    padding: 20px 10px;
-    border-bottom: 1px solid rgba(100,100,100, 0.5);
-}
-
-#sidebar .toggle-btn{
-    position:absolute;
-    left:230px;
-    top:20px;
-}
-
-#sidebar .toggle-btn span{
-    display: block;
-    width:30px;
-    height:5px;
-    background:#151719;
-    margin: 5px 0px;
-}
-
-header {
+    top:0;
+    left:0;
     width: 100%;
+    background: #521751;
+    height:56px;
 }
 
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
+.toolbar_navigation{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
 }
 
-html {
-    font-size: 14px;
+.toolbar_logo{
+    margin-left: 1rem;
 }
+
+.toolbar_logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.spacer{
+    flex: 1;
+}
+
+.toolbar_navigation_items ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.toolbar_navigation_items li {
+    padding: 0.5rem;
+}
+
+.toolbar_navigation_items a {
+    color: white;
+    text-decoration: none;
+}
+
+    .toolbar_navigation_items a:hover,
+     .toolbar_navigation_items a:active {
+        color: #fa923f;
+    }
+
 
 @media (min-width: 768px) {
     html {
@@ -58,31 +56,11 @@ html {
     }
 }
 
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-.menu-icon {
-    width:30px;
-    height:30px;
-}
-
-.row-header {
-    width:100%;
-}
-
-.button-sidebar {
-    margin-top:0px;
-   padding-top:0px;
-}
-
 
 .container {
     margin-left:0px !important;
+    margin-top:0px !important;
     margin-right:0px !important;
     max-width:100% !important;
 }
 
-.bm-overlay {
-    background: rgba(255,255,255, 0) !important;
-}

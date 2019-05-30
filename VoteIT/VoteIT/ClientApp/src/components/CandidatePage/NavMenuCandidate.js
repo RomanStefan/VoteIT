@@ -1,9 +1,9 @@
 ﻿import React, { Component } from 'react';
-import { Collapse, Button, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Collapse, Button, Container, NavbarBrand, NavbarToggler, NavLink } from 'reactstrap';
 import './NavMenuCandidate.css';
 import { slide as Menu } from 'react-burger-menu'
 import sidebarLogo from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/menu.png';
+import { DrawerToggleButton } from './DrawerToggleButton';
 
 export class NavMenuCandidate extends Component {
     static displayName = NavMenuCandidate.name;
@@ -55,33 +55,21 @@ export class NavMenuCandidate extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
-                <nav className="navbar navbar-expand-xl navbar-light">
-                    <div className="row row-header">
-                        <div id="sidebar">
-                            <div class="toggle-btn" onClick={this.toggleSidebar}>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <ul>
-                                <li><a href="/candidates/editProfile">Register for new sesions</a></li>
-                                <li>APARTMENTS</li>
-                                <li>About</li>
-                            </ul>
-                        </div>
-                        <div className="col-4">
-                          <a href="#">Test 1</a>
-                        </div>
-                        <div className="col-4">
-                            <a href="#">Test 2</a>
-                        </div>
-                        <div className="col-4">
-                            <a href="/" onClick={this.Logout}>Logout</a>
-                        </div>
+            <header className="toolbar">
+                <nav className="toolbar_navigation">
+                    <div>
+                        <DrawerToggleButton click={this.props.drawerClickHandler}/>
+                    </div>
+                    <div className="toolbar_logo"><a href="/">The Logo</a></div>
+                    <div className="spacer"></div>
+                    <div className="toolbar_navigation_items">
+                        <ul>
+                            <li><a href="/">Products</a></li>
+                            <li><a href="/">Users</a></li>
+                        </ul>
                     </div>
                 </nav>
-                </div>
+            </header>
         );
     }
 }
