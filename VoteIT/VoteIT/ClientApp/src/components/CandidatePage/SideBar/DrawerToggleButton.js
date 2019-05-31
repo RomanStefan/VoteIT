@@ -4,8 +4,8 @@ import './DrawerToggleButton.css'
 export class DrawerToggleButton extends Component {
     constructor(props) {
         super(props);
-        };
-    
+    };
+
     render() {
         return (
             <button className="toggle-button" onClick={this.props.click}>

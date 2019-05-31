@@ -1,9 +1,9 @@
 ﻿import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { NavMenuCandidate } from './NavMenuCandidate';
-import { SideBarCandidate } from './SideBarCandidate';
-import { BackDrop } from 'D:/VoteIT/VoteIT/VoteIT/ClientApp/src/resources/Backdrop/BackDrop';
+import { Toolbar } from './Toolbar/Toolbar';
+import { SideBar } from './SideBar/SideBar';
+import { BackDrop } from './BackDrop/BackDrop'
 
 export class Candidate extends Component {
     state = {
@@ -16,26 +16,24 @@ export class Candidate extends Component {
         });
     };
 
-    backDropCLickHandler = () => {
-        this.setState({ sideBar: false });
-    }
+    backdropClickHandler = () => {
+        this.setState({ sideBarOpen: false });
+    };
 
     render() {
-        let sideBar;
         let backdrop;
 
         if (this.state.sideBarOpen) {
-            sideBar = <SideBarCandidate />;
-            backdrop = <BackDrop click={this.backDropCLickHandler}/>;
+            backdrop = <BackDrop click={this.backdropClickHandler} />
         }
         return (
-            <div style={{height: '100%'}}>
-                <NavMenuCandidate drawerClickHandler={this.drawerToogleClickHandler}/>
-                {sideBar}
+            <div style={{ height: '100%' }}>
+                <Toolbar drawerClickHandler={this.drawerToogleClickHandler} />
+                <SideBar show={this.state.sideBarOpen} />
                 {backdrop}
-                <main style={{marginTop: '63px'}}>
+                <main style={{ marginTop: '63px' }}>
                     <h2 >Candidate Page</h2>
-                </main>  
+                </main>
             </div>
         );
     }

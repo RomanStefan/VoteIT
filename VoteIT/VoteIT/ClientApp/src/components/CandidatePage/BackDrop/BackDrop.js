@@ -8,7 +8,7 @@ export class BackDrop extends Component {
 
     render() {
         return (
-            <div className="backdrop" onClick={this.props.click}/>
+            <div className="backdrop" onClick={this.props.click} />
         );
     }
 }
