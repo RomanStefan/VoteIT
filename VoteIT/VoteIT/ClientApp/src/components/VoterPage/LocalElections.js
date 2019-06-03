@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import './VoterPage.css';
-import { NavMenuVoter } from './NavMenuVoter';
+import { Voter } from './VoterPage';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
@@ -84,7 +84,7 @@ export class Local extends Component {
         var candidate = JSON.parse(localStorage.getItem('candidateToBeVoted'));
         return (
             <div>
-                <NavMenuVoter />
+                <Voter />
                 <h2>Local Page</h2>
                 <div className="row">
                     {this.renderButton()}

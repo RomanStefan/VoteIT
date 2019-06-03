@@ -21,7 +21,7 @@ export class SideBar extends Component {
         return (
             <nav className={drawerClasses}>
                 <ul>
-                    <li><a href="/candidates/editProfile">Register candidature</a></li>
+                    <li><a href="/">Start Sesion</a></li>
                     <li><a href="/" onClick={this.Logout}>Logout</a></li>
                 </ul>
             </nav>

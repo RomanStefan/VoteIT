@@ -2,7 +2,7 @@
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input } from 'reactstrap';
-import { Toolbar } from './Toolbar/Toolbar';
+import { Candidate } from './CandidatePage';
 
 export class EditCandidatePage extends Component {
     constructor(props) {
@@ -70,9 +70,9 @@ export class EditCandidatePage extends Component {
         const politicalParty = user.politicalParty
         return (
             <div>
-                <Toolbar />
+                <Candidate/>
                 <form>
-                    <h2 class="headertekst">Create Candidate Profile</h2>
+                    <h2 class="headertekst">Register candidature</h2>
                     <div className="form-group">
                         <label>Personal Description:</label>
                         <input type="text" className="form-control" id="persDescription" placeholder={personalDescription} onChange={this.handlePersonalDescriptionChange}/>

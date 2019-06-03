@@ -2,6 +2,9 @@
     box-sizing: border-box;
 }
 
+h2{
+    text-align: center;
+}
 /* Create four equal columns that floats next to each other */
 .column {
     float: left;
@@ -32,7 +35,7 @@
 }
 
 .column:hover {
-    background-color: skyblue;
+    background-color: #00ccff;
     transition: linear 500ms;
     animation: glow 1s ease-in-out infinite alternate;
 }

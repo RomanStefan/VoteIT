@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import './VoterPage.css';
-import { NavMenuVoter } from './NavMenuVoter';
+import { Voter } from './VoterPage';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
@@ -19,7 +19,7 @@ export class Presidential extends Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleSendVote = this.handleSendVote.bind(this);
 
-        axios.get('https://localhost:44319/Users').then(res => {
+        axios.get('https://localhost:44319/Users/GetAllCandidatesForPresidentials').then(res => {
             this.setState({ presidentialCandidates: res.data });
             console.log(res.data);
         });
@@ -78,7 +78,7 @@ export class Presidential extends Component {
         var candidate = JSON.parse(localStorage.getItem('candidateToBeVoted'));
         return (
             <div>
-                <NavMenuVoter />
+                <Voter />
                 <h2>Presidential Page</h2>
                 <div className="row">
                     {this.renderButton()}

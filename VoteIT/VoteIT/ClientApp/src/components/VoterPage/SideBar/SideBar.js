@@ -14,15 +14,16 @@ export class SideBar extends Component {
 
     render() {
 
-        let drawerClasses = 'side-drawer';
+        let drawerClasses = 'sidedrawer';
         if (this.props.show) {
-            drawerClasses = 'side-drawer open'
+            drawerClasses = 'sidedrawer open'
         }
         return (
             <nav className={drawerClasses}>
                 <ul>
-                    <li><a href="/candidates/editProfile">Register candidature</a></li>
-                    <li><a href="/" onClick={this.Logout}>Logout</a></li>
+                    <li><a class = "link" href="/voters/local">Local Elections</a></li>
+                    <li><a class="link" href="/voters/presidential">Presidential Elections</a></li>
+                    <li><a class="link" href="/" onClick={this.Logout}>Logout</a></li>
                 </ul>
             </nav>
         );
