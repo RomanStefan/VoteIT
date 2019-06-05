@@ -1,12 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace VoteIT.Models
 {
     public class VotingSesion
     {
-        [Required]
-        public int Id { get; set; }
+        [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IdSession { get; set; }
 
         public string SesionName { get; set; }
 

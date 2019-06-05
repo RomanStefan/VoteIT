@@ -23,7 +23,6 @@ export class Local extends Component {
         var voter = JSON.parse(localStorage.getItem('user'));
         var cityId = parseInt(voter.cityId); 
         var name = voter.firstName;
-        console.log(cityId);
         axios.post('https://localhost:44319/Users/GetUsersByCityId', { cityId, name }  ).then(res => {
             this.setState({ localCandidates: res.data });
             console.log(res.data);

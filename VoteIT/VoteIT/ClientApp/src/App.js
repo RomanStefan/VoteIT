@@ -9,6 +9,8 @@ import { Local } from './components/VoterPage/LocalElections'
 import { Candidate } from './components/CandidatePage/CandidatePage'
 import { EditCandidatePage } from './components/CandidatePage/EditCandidatePage'
 import { Admin } from './components/AdminPage/AdminPage'
+import { CreateSession } from './components/AdminPage/CreateSession'
+import { StartSession} from './components/AdminPage/StartSession'
 
 
 
@@ -26,6 +28,8 @@ export default class App extends Component {
         <Route path='/candidate' component={Candidate} />
         <Route path='/candidates/editProfile' component={EditCandidatePage}/>
         <Route path='/admin' component={Admin} />
+        <Route path='/admins/createsession' component={CreateSession}/>
+        <Route path='/admins/startsession' component={StartSession} />
       </Layout>
     );
   }

@@ -30,7 +30,9 @@ export class Toolbar extends Component {
                     <div className="spacer"></div>
                     <div className="toolbar_navigation_items">
                         <ul>
-                            <li><a href="/">Start Sesion</a></li>
+                            <li><a href="/admins/createsession">Create The Session</a></li>
+                            <li><a href="/admins/startsession">Start The Session</a></li>
+                            <li><a href="/">End The Session</a></li>
                             <li><a href="/" onClick={this.Logout}>Logout</a></li>
                         </ul>
                     </div>
