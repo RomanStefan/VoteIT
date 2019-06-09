@@ -1,8 +1,8 @@
 ﻿import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input } from 'reactstrap';
-import { Admin } from './AdminPage';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input, Form } from 'reactstrap';
+import { LayoutAdmin } from './LayoutAdmin';
 
 export class CreateSession extends Component {
     constructor(props) {
@@ -39,18 +39,21 @@ export class CreateSession extends Component {
         var user = JSON.parse(localStorage.getItem('user'));
         return (
             <div>
-                <Admin />
-                <form>
+                <LayoutAdmin />
+                <main style={{ marginTop: '63px' }}>
                     <h2 className="headertekst">Create New Session</h2>
+                <Form>
+                    
                     <div className="form-group">
-                        <label>Session Name</label>
-                        <input type="text" className="form-control" placeholder="Enter the new session type" onChange={this.handleSessionNameChange} />
+                        <Label>Session Name</Label>
+                        <Input type="text" className="form-control" placeholder="Enter the new session type" onChange={this.handleSessionNameChange} />
                     </div>
 
-                    <form action="/admin" >
+                    <Form action="/admin" >
                         <button className="SaveButton" type="submit" onClick={this.createSession}>Create Session</button>
-                    </form>
-                </form>
+                    </Form>
+                 </Form>
+                </main>
             </div>
         );
     }

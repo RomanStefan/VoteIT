@@ -13,6 +13,8 @@ namespace VoteIT.Models
 
         public string SesionName { get; set; }
 
+        public DateTime date { get; set; }
+
         public bool Available { get; set; }
     }
 }

@@ -62,6 +62,8 @@ namespace VoteIT.Migrations
 
                     b.Property<int>("UserType");
 
+                    b.Property<bool>("Voted");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -81,8 +83,6 @@ namespace VoteIT.Migrations
 
                     b.Property<int>("SesionId");
 
-                    b.Property<int>("VoterId");
-
                     b.HasKey("Id");
 
                     b.ToTable("VotingsHistory");
@@ -90,7 +90,7 @@ namespace VoteIT.Migrations
 
             modelBuilder.Entity("VoteIT.Models.VotingSesion", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdSession")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -98,7 +98,9 @@ namespace VoteIT.Migrations
 
                     b.Property<string>("SesionName");
 
-                    b.HasKey("Id");
+                    b.Property<DateTime>("date");
+
+                    b.HasKey("IdSession");
 
                     b.ToTable("VotingSesions");
                 });

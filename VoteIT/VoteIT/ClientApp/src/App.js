@@ -10,7 +10,8 @@ import { Candidate } from './components/CandidatePage/CandidatePage'
 import { EditCandidatePage } from './components/CandidatePage/EditCandidatePage'
 import { Admin } from './components/AdminPage/AdminPage'
 import { CreateSession } from './components/AdminPage/CreateSession'
-import { StartSession} from './components/AdminPage/StartSession'
+import { StartSession } from './components/AdminPage/StartSession'
+import { EndSession } from './components/AdminPage/EndSession'
 
 
 
@@ -30,6 +31,7 @@ export default class App extends Component {
         <Route path='/admin' component={Admin} />
         <Route path='/admins/createsession' component={CreateSession}/>
         <Route path='/admins/startsession' component={StartSession} />
+        <Route path='/admins/endsession' component={EndSession} />
       </Layout>
     );
   }

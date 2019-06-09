@@ -7,9 +7,6 @@ namespace VoteIT.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public int VoterId { get; set; }
-
         public int CandidateId { get; set; }
 
         public int SesionId { get; set; }

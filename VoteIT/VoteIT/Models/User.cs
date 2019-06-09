@@ -23,6 +23,8 @@ namespace VoteIT.Models
 
         public int CityId { get; set; }
 
+        public bool Voted { get; set; }
+
         //For Candidate
         public string PersonalDescription { get; set; }
 

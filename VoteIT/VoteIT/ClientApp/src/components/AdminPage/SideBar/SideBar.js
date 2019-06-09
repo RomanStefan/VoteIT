@@ -23,7 +23,7 @@ export class SideBar extends Component {
                 <ul>
                     <li><a href="/admins/createsession">Create The Session</a></li>
                     <li><a href="/admins/startsession">Start The Session</a></li>
-                    <li><a href="/">End The Session</a></li>
+                    <li><a href="/admins/endsession">End The Session</a></li>
                     <li><a href="/" onClick={this.Logout}>Logout</a></li>
                 </ul>
             </nav>

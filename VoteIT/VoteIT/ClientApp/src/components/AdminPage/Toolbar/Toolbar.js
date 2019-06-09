@@ -26,13 +26,13 @@ export class Toolbar extends Component {
                     <div className="toolbar_toggle_button">
                         <DrawerToggleButton click={this.props.drawerClickHandler} />
                     </div>
-                    <div className="toolbar_logo"><a href="/candidate">The Logo</a></div>
+                    <div className="toolbar_logo"><a href="/admin">The Logo</a></div>
                     <div className="spacer"></div>
                     <div className="toolbar_navigation_items">
                         <ul>
                             <li><a href="/admins/createsession">Create The Session</a></li>
                             <li><a href="/admins/startsession">Start The Session</a></li>
-                            <li><a href="/">End The Session</a></li>
+                            <li><a href="/admins/endsession">End The Session</a></li>
                             <li><a href="/" onClick={this.Logout}>Logout</a></li>
                         </ul>
                     </div>

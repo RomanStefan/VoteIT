@@ -1,9 +1,8 @@
 ﻿import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input } from 'reactstrap';
-import { Admin } from './AdminPage';
-import { Local } from '../VoterPage/LocalElections';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input, Form } from 'reactstrap';
+import { LayoutAdmin } from './LayoutAdmin';
 
 export class StartSession extends Component {
     constructor(props) {
@@ -11,13 +10,15 @@ export class StartSession extends Component {
         super(props);
         this.state = {
             sessionName: '',
-            local: true,
-            presidential: true,
-            sessions: []
+            sessions: [],
+            availableSessions: [],
+            local: false,
+            presidential: false,
+            data: ''
         };
 
-        axios.get('https://localhost:44319/VotingSessions').then(res => {
-            this.setState({ sessions: res.data });
+        axios.get('https://localhost:44319/VotingSessions/AvailableSessions').then(res => {
+            this.setState({ availableSessions: res.data });
             console.log(res.data);
         });
 
@@ -25,7 +26,9 @@ export class StartSession extends Component {
         this.handleSessionNameChange = this.handleSessionNameChange.bind(this);
         this.LocalChange = this.LocalChange.bind(this);
         this.PresidentialChange = this.PresidentialChange.bind(this);
-        this.createSession = this.startSession.bind(this);
+        this.handleData = this.handleData.bind(this);
+
+        this.startSession = this.startSession.bind(this);
     }
 
     handleSessionNameChange(evt) {
@@ -33,61 +36,85 @@ export class StartSession extends Component {
     }
 
     LocalChange(evt) {
-        this.setState({ local: !this.state.local })
-        console.log(this.state.local);
+        this.setState({ local: evt.target.checked })
+        console.log(evt.target.checked);
     }
 
     PresidentialChange(evt) {
-        this.setState({ presidential: !this.state.presidential })
-        console.log(this.state.presidential);
+        this.setState({ presidential: evt.target.checked })
+        console.log(evt.target.checked);
     }
 
+    handleData(evt) {
+        this.setState({ data: evt.target.value });
+        console.log(evt.target.value);
+    }
 
     startSession() {
-        const sessionName = this.state.sessionName;
-        const id = 1;
-        console.log(sessionName);
-        axios.post('https://localhost:44319/VotingSessions/CreateSession', {
-            id,
-            sessionName
-        }
-        ).then(res => {
+        const local = this.state.local;
+        const presidential = this.state.presidential;
+        const data = this.state.data;
+        axios.put('https://localhost:44319/VotingSessions/StartSession', {
+            local,
+            presidential,
+            data
+        }).then(res => {
             console.log(res);
         });
     }
 
+
+    displayAvailableSessions() {
+        if (this.state.availableSessions.length == 0) {
+            return (
+                <p>Here are no available Sessions</p>
+            );
+        }
+        else {
+            return this.state.availableSessions.map((session, index) => {
+                const { idSession, sesionName } = session //destructuring
+                return (
+                    <p><b>{sesionName}</b> is already open.</p>
+                )
+            })
+        }
+    }
+
+
     render() {
         return (
             <div>
-                <Admin />
-                <form>
-                    <h2 className="headertekst">Start The Session</h2>
-
-                    <div class="checkbox">
-                        <input id="checkbox1" class="styled" type="checkbox" onChange={this.LocalChange}/>
-                            <label for="checkbox1">
+                <LayoutAdmin />
+                <main style={{ marginTop: '63px' }}>
+                <h2 className="headertekst">Start The Session</h2>
+                <Form>
+                    <Label>
+                        {this.displayAvailableSessions()}
+                    </Label>
+                    <FormGroup class="checkbox">
+                        <Input id="checkbox1" class="styled" type="checkbox" checked={this.state.local} onChange={this.LocalChange}/>
+                        <Label >
                                 Local Elections
-                        </label>
-                    </div>
+                        </Label >
+                    </FormGroup>
 
-                    <div class="checkbox">
-                        <input id="checkbox1" class="styled" type="checkbox" onChange={this.PresidentialChange}/>
-                        <label for="checkbox1">
+                    <FormGroup class="checkbox">
+                        <Input id="checkbox1" class="styled" type="checkbox" checked={this.state.presidential} onChange={this.PresidentialChange}/>
+                        <Label >
                             Presidential Elections
-                        </label>
-                    </div>
+                        </Label >
+                    </FormGroup>
 
-                    <form>
-                        <div>
-                            <label for="bday">Select Session Date: </label>
-                            <input type="date" id="bday" name="bday"/>
-                        </div>
-                    </form>
+                    <FormGroup>
+                        <Label Label for="bday">Select Session Date: </Label >
+                        <input type="date" id="bday" name="bday" onChange={this.handleData}/>
+                    </FormGroup>
 
-                    <form action="/admin" >
+                    <FormGroup action="/admin" >
                         <button className="SaveButton" type="submit" onClick={this.startSession}>Start Session</button>
-                    </form>
-                </form>
+                    </FormGroup>
+                </Form>
+                </main>
             </div>
         );
     }
