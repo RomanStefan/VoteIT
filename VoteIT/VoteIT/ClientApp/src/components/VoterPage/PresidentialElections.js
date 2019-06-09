@@ -2,6 +2,8 @@
 import './VoterPage.css';
 import { Voter } from './VoterPage';
 import { Redirect } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
@@ -57,7 +59,23 @@ export class Presidential extends Component {
         }).then(res => {
             console.log(res);
             this.setState({ showModal: false });
-        }); 
+            toast.success('Your vote was send. !', {
+                containerId: 'A',
+                position: toast.POSITION.BOTTOM_CENTER,
+                autoClose: 1500
+            });
+        })
+            .catch(error => {
+                if (error.response.status == 409) {
+                    this.setState({ showModal: false });
+                    console.log("You voted already");
+                    toast.error('Already voted !', {
+                        containerId: 'B',
+                        position: toast.POSITION.BOTTOM_CENTER,
+                        autoClose: 1500
+                    });
+                };
+            });
     }
 
     renderButton() {
@@ -90,8 +108,9 @@ export class Presidential extends Component {
                         <button type="submit" id="ModalBoxCloseButton" onClick={this.handleCloseModal}>Close Vote</button>
                         <button type="submit" id="ModalBoxSendVoteButton" onClick={this.handleSendVote}> Send Vote</button>
                     </div>
-
                 </Modal>
+                <ToastContainer enableMultiContainer containerId={'A'} />
+                <ToastContainer enableMultiContainer containerId={'B'} />
             </div>
         );
     }

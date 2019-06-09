@@ -47,23 +47,31 @@ namespace VoteIT.Controllers
 
         public ActionResult<IHttpActionResult> PostVote([System.Web.Http.FromBody] VoteDetails voteDetails)
         {
-            //Create new Vote
-            VotingHistory newVote = new VotingHistory();
-            newVote.CandidateId = voteDetails.CandidateId;
-            newVote.SesionId = voteDetails.SesionId;
-            newVote.SesionDate = voteDetails.SesionDate;
-            newVote.CityId = voteDetails.CityId;
-
-            _context.VotingsHistory.Add(newVote);
-
-            //Update voting option for user ->TRUE(voted)
             var voterID = voteDetails.VoterId;
             var _user = _context.Users.FirstOrDefault(user => user.Id == voterID);
-            _user.Voted = true;
 
-            _context.SaveChanges();
+            //check if user voted already 
+            if (_user.Voted == false)
+            {
+                //Update voting option for user ->TRUE(voted)
+                _user.Voted = true;
+                //Create new Vote
+                VotingHistory newVote = new VotingHistory();
+                newVote.CandidateId = voteDetails.CandidateId;
+                newVote.SesionId = voteDetails.SesionId;
+                newVote.SesionDate = voteDetails.SesionDate;
+                newVote.CityId = voteDetails.CityId;
 
-            return StatusCode(201);
+                _context.VotingsHistory.Add(newVote);
+                _context.SaveChanges();
+                return StatusCode(201);
+            }
+            else
+            {
+                return StatusCode(409);
+            }
+
+            
         }
     }
 }
