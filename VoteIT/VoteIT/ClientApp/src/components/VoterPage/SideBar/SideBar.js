@@ -21,9 +21,9 @@ export class SideBar extends Component {
         return (
             <nav className={drawerClasses}>
                 <ul>
-                    <li><a class = "link" href="/voters/local">Local Elections</a></li>
-                    <li><a class="link" href="/voters/presidential">Presidential Elections</a></li>
-                    <li><a class="link" href="/" onClick={this.Logout}>Logout</a></li>
+                    <li><a className = "link" href="/voters/local">Local Elections</a></li>
+                    <li><a className="link" href="/voters/presidential">Presidential Elections</a></li>
+                    <li><a className="link" href="/" onClick={this.Logout}>Logout</a></li>
                 </ul>
             </nav>
         );

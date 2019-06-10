@@ -91,6 +91,11 @@ export class StartSession extends Component {
                     <Label>
                         {this.displayAvailableSessions()}
                     </Label>
+
+                    <div>
+                         <p>Select which session you want to open</p>
+                    </div>
+
                     <FormGroup class="checkbox">
                         <Input id="checkbox1" class="styled" type="checkbox" checked={this.state.local} onChange={this.LocalChange}/>
                         <Label >

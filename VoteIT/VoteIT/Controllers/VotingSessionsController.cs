@@ -26,6 +26,17 @@ namespace VoteIT.Controllers
             return sessions.ToList();
         }
 
+        // GET: GetSessionById
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        [Microsoft.AspNetCore.Mvc.Route("GetSessionById")]
+        public VotingSesion GetSessionById([FromUri] int IdSession)
+        {
+            var session = _context.VotingSesions.FirstOrDefault(_session => _session.IdSession == IdSession);
+            return session;
+        }
+
+
+
         // GET: AllAvailableSessions
         [Microsoft.AspNetCore.Mvc.Route("AvailableSessions")]
         [Microsoft.AspNetCore.Mvc.HttpGet]

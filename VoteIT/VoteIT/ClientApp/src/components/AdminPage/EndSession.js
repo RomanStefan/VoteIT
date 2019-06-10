@@ -73,6 +73,10 @@ export class EndSession extends Component {
                     <Label>
                         {this.displayAvailableSessions()}
                     </Label>
+
+                    <div>
+                         <p>Select which session you want to close:</p>
+                    </div>
                     <FormGroup className="checkbox">
                         <Input id="checkbox1" className="styled" type="checkbox" checked={this.state.local} onChange={this.LocalChange} />
                         <Label >

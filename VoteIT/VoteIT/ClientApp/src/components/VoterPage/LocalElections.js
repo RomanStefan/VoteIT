@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import './VoterPage.css';
-import { Voter } from './VoterPage';
+import { VoterLayout } from './VoterLayout';
 import { Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,8 @@ export class Local extends Component {
         this.state = {
             showModal: false,
             firstName: '',
-            localCandidates: []
+            localCandidates: [],
+            isAvailable: ''
         };
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -29,6 +30,10 @@ export class Local extends Component {
         axios.post('https://localhost:44319/Users/GetUsersByCityId', { cityId, name }  ).then(res => {
             this.setState({ localCandidates: res.data });
             console.log(res.data);
+        });
+
+        axios.get('https://localhost:44319/VotingSessions/GetSessionById?IdSession=1').then(res => {
+            this.setState({ isAvailable: res.data.available });
         });
     }
 
@@ -101,24 +106,41 @@ export class Local extends Component {
 
     render() {
         var candidate = JSON.parse(localStorage.getItem('candidateToBeVoted'));
-        return (
-            <div>
-                <Voter />
-                <h2>Local Page</h2>
-                <div className="row">
-                    {this.renderButton()}
+
+        var candidate = JSON.parse(localStorage.getItem('candidateToBeVoted'));
+        if (this.state.isAvailable == false) {
+            return (
+                <div>
+                    <VoterLayout />
+                    <main style={{ marginTop: '63px', fontSize: 22 }}>
+                        <h2>Local Page</h2>
+                        <p>At this moment Local Elections are not available.</p>
+                    </main>
+                </div >
+            );
+        }
+        else {
+            return (
+                <div>
+                    <VoterLayout />
+                    <main style={{ marginTop: '63px' }}>
+                        <h2>Local Page</h2>
+                        <div className="row">
+                            {this.renderButton()}
+                        </div>
+                        <Modal className="modalBox" isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
+                            <p>Your candidate for presidential is: <b>{candidate.firstName}  {candidate.lastName}</b> from <b>{candidate.politicalParty}</b> </p>
+                            <p> Are you sure?</p>
+                            <div>
+                                <button type="submit" id="ModalBoxCloseButton" onClick={this.handleCloseModal}>Close Vote</button>
+                                <button type="submit" id="ModalBoxSendVoteButton" onClick={this.handleSendVote}> Send Vote</button>
+                            </div>
+                        </Modal>
+                        <ToastContainer enableMultiContainer containerId={'A'} />
+                        <ToastContainer enableMultiContainer containerId={'B'} />
+                    </main>
                 </div>
-                <Modal className="modalBox" isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
-                    <p>Your candidate for presidential is: <b>{candidate.firstName}  {candidate.lastName}</b> from <b>{candidate.politicalParty}</b> </p>
-                    <p> Are you sure?</p>
-                    <div>
-                        <button type="submit" id="ModalBoxCloseButton" onClick={this.handleCloseModal}>Close Vote</button>
-                        <button type="submit" id="ModalBoxSendVoteButton" onClick={this.handleSendVote}> Send Vote</button>
-                    </div>
-                </Modal>
-                <ToastContainer enableMultiContainer containerId={'A'} />
-                <ToastContainer enableMultiContainer containerId={'B'} />
-            </div>
-        );
+            );
+        }       
     }
 }
