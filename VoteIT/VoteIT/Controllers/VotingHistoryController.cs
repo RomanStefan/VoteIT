@@ -26,6 +26,29 @@ namespace VoteIT.Controllers
             return history.ToList();
         }
 
+        public class VoteResults
+        {
+            public string CandidateName { get; set; }
+
+            public int NumberOfVotes { get; set; }
+        }
+
+
+        // GET: AllResultsOfSession
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        [Microsoft.AspNetCore.Mvc.Route("GetTheResults")]
+        public IList<VoteResults> GetTheResults()
+        {
+            var list = from users in _context.Users
+                       join candidate in _context.VotingsHistory on users.Id equals candidate.CandidateId
+                       select new VoteResults
+                       {
+                           CandidateName = users.FirstName + ' ' + users.LastName,
+                           NumberOfVotes = _context.VotingsHistory.Where(e => e.CandidateId == users.Id).Count()
+                        };
+            return list.Distinct().ToList();
+        }
+
 
         public class VoteDetails
         {

@@ -10,11 +10,17 @@ export class Admin extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            availableSessions: []
+            availableSessions: [],
+            voteResults: []
         };
 
         axios.get('https://localhost:44319/VotingSessions/AvailableSessions').then(res => {
             this.setState({ availableSessions: res.data });
+            console.log(res.data);
+        });
+
+        axios.get('https://localhost:44319/VotingHistory/GetTheResults').then(res => {
+            this.setState({ voteResults: res.data });
             console.log(res.data);
         });
     }
