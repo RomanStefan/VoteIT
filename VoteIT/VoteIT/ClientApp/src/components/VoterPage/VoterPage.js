@@ -6,6 +6,7 @@ import { ToolbarVoter } from './Toolbar/ToolbarVoter';
 import { SideBar } from './SideBar/SideBar';
 import { BackDrop } from './BackDrop/BackDrop'
 import { VoterLayout } from './VoterLayout';
+import { ChartPie } from '../SecondComponents/ChartPie';
 
 export class Voter extends Component {
     constructor(props) {
@@ -52,6 +53,9 @@ export class Voter extends Component {
                     <Label>
                         {this.displayAvailableSessions()}
                     </Label>
+                    <div>
+                        <ChartPie />
+                    </div>
                 </main>
             </div>
         );

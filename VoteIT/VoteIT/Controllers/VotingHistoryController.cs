@@ -30,6 +30,8 @@ namespace VoteIT.Controllers
         {
             public string CandidateName { get; set; }
 
+            public string PoliticalParty { get; set; }
+
             public int NumberOfVotes { get; set; }
         }
 
@@ -44,6 +46,7 @@ namespace VoteIT.Controllers
                        select new VoteResults
                        {
                            CandidateName = users.FirstName + ' ' + users.LastName,
+                           PoliticalParty = users.PoliticalParty,
                            NumberOfVotes = _context.VotingsHistory.Where(e => e.CandidateId == users.Id).Count()
                         };
             return list.Distinct().ToList();

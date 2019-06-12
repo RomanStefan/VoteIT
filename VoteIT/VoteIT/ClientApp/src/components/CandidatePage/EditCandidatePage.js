@@ -2,7 +2,7 @@
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input } from 'reactstrap';
-import { Candidate } from './CandidatePage';
+import { CandidateLayout } from './CandidateLayout';
 
 export class EditCandidatePage extends Component {
     constructor(props) {
@@ -70,7 +70,7 @@ export class EditCandidatePage extends Component {
         const politicalParty = user.politicalParty
         return (
             <div>
-                <Candidate/>
+                <CandidateLayout/>
                 <form>
                     <h2 class="headertekst">Register candidature</h2>
                     <div className="form-group">
