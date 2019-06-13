@@ -1,4 +1,16 @@
-﻿.chart {
+﻿#row{
+    display: inline-block;
+}
+
+#rowResults {
+    position:fixed;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 40px;
+    
+}
+
+.chart {
     height: 250px;
     width: 300px;
 }
