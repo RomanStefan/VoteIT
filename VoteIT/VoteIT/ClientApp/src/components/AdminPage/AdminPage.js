@@ -62,7 +62,11 @@ export class Admin extends Component {
             return this.state.availableSessions.map((session, index) => {
                 const { idSession, sesionName } = session //destructuring
                 return (
-                    <p><b>{sesionName}</b> is open for this moment</p>
+                    <div>
+                        <p><b>{sesionName}</b> are open for this moment</p>
+                        <ChartPie />
+                    </div>
+                    
                 )
             })
         }
@@ -77,9 +81,6 @@ export class Admin extends Component {
                     <Label>
                         {this.displayAvailableSessions()}
                     </Label>
-                    <div>
-                        <ChartPie/>
-                    </div>
                 </main>
             </div>
         );
