@@ -56,17 +56,14 @@ export class Local extends Component {
         var sesionId = 1;
         var cityId = voter.cityId;
 
-        var today = new Date();
-        var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        var dateTime = date + ' ' + time;
-        console.log(dateTime);
+        var sesionDate = new Date();
+        console.log(sesionDate);
 
         axios.post('https://localhost:44319/VotingHistory/PostNewVote', {
             voterId,
             candidateId,
             sesionId,
-            dateTime,
+            sesionDate,
             cityId
         }).then(res => {
             console.log(res);

@@ -81,20 +81,19 @@ namespace VoteIT.Controllers
         [Microsoft.AspNetCore.Mvc.HttpPut]
         public ActionResult<IHttpActionResult> StartSession([System.Web.Http.FromBody] StartSessions startSessions)
         {
-            var _date = startSessions.startDate.Date;
 
             if(startSessions.local == true)
             {
                 var local = _context.VotingSesions.FirstOrDefault((u) => u.IdSession == 1);
                 local.Available = true;
-                local.date = _date;
+                local.date = startSessions.startDate;
             }
 
             if(startSessions.presidential == true)
             {
                 var presidential = _context.VotingSesions.FirstOrDefault((u) => u.IdSession == 2);
                 presidential.Available = true;
-                presidential.date = _date;
+                presidential.date = startSessions.startDate;
             }
 
             //give vote option for all votants when new session is started

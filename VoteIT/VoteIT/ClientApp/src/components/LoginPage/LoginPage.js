@@ -77,7 +77,7 @@ export class Login extends Component {
                                 <label><b>Password</b></label>
                                 <input type="password" placeholder="Enter Password" name="psw" required onChange={this.handlePasswordChange} />
 
-                                <button type="submit" onClick={this.loginClick}>Login</button>
+                                <button className ="button_register" type="submit" onClick={this.loginClick}>Login</button>
                             </div>
                         </form>
                     </div>

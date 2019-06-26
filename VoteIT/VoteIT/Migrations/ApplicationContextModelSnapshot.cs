@@ -79,6 +79,8 @@ namespace VoteIT.Migrations
 
                     b.Property<int>("CityId");
 
+                    b.Property<int>("NumberOfVotes");
+
                     b.Property<DateTime>("SesionDate");
 
                     b.Property<int>("SesionId");

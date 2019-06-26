@@ -53,11 +53,11 @@ export class StartSession extends Component {
     startSession() {
         const local = this.state.local;
         const presidential = this.state.presidential;
-        const data = this.state.data;
+        const startDate = this.state.data;
         axios.put('https://localhost:44319/VotingSessions/StartSession', {
             local,
             presidential,
-            data
+            startDate
         }).then(res => {
             console.log(res);
         });
@@ -112,7 +112,7 @@ export class StartSession extends Component {
 
                     <FormGroup>
                         <Label Label for="bday">Select Session Date: </Label >
-                        <input type="date" id="bday" name="bday" onChange={this.handleData}/>
+                        <input type="datetime-local" id="bday" name="bday" onChange={this.handleData}/>
                     </FormGroup>
 
                     <FormGroup action="/admin" >

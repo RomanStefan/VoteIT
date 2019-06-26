@@ -1,6 +1,8 @@
 ﻿import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, FormGroup, Label, Input } from 'reactstrap';
 import classnames from 'classnames';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './RegistrationLabel.css';
 import axios from 'axios';
 //https://reactstrap.github.io/components/tabs/       <<<LOOK HERE
@@ -120,8 +122,12 @@ export class Voters extends Component {
             password,
             buffer
         }).then(res => {
-            console.log(res);
-        }); 
+            console.log(res);  
+        });
+        toast.success('Successful created!', {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 1500
+        });
     }
 
     render() {
@@ -129,20 +135,21 @@ export class Voters extends Component {
             <form>
                 <h2>Voters Registration</h2>
                 <div className="form-group">
-                    <label>Username:</label>
+                    <label>Username</label>
                     <input type="username" className="form-control" id="username" onChange={this.handleUsernameChange}/>
                 </div>
                 <div className="form-group">
-                    <label>Password:</label>
+                    <label>Password</label>
                     <input type="password" className="form-control" id="pwd" onChange={this.handlePasswordChange}/>
                 </div>
                 <div className="form-group">
-                    <label>Identity Card Photo:</label>
+                    <label>Identity Card Photo</label>
                     <input type="file" className="form-control" id="fileLoad" onChange={this.handleImageChange}/>
                 </div>
 
 
                 <button className="button_register" type="submit" onClick={this.registerClick}>Register</button>
+                <ToastContainer/>
             </form>
         );
     }
@@ -216,6 +223,10 @@ export class Candidates extends Component {
             politicalParty
         }).then(res => {
             console.log(res);
+            toast.success('Successful created!', {
+                position: toast.POSITION.BOTTOM_CENTER,
+                autoClose: 1500
+            });
         }); 
     }
 
@@ -224,23 +235,23 @@ export class Candidates extends Component {
             <form>
                 <h2>Candidates Registration</h2>
                 <div className="form-group">
-                    <label>First Name:</label>
+                    <label>First Name</label>
                     <input type="text" className="form-control" id="firstName" onChange={this.handleFirstNameChange} />
                 </div>
                 <div className="form-group">
-                    <label>last Name:</label>
+                    <label>Last Name</label>
                     <input type="text" className="form-control" id="lastName" onChange={this.handleLastNameChange} />
                 </div>
                 <div className="form-group">
-                    <label>Username:</label>
+                    <label>Username</label>
                     <input type="username" className="form-control" id="username" onChange={this.handleUserNameChange} />
                 </div>
                 <div className="form-group">
-                    <label>Password:</label>
+                    <label>Password</label>
                     <input type="password" className="form-control" id="pwd" onChange={this.handlePasswordChange} />
                 </div>
                 <div className="form-group">
-                    <label>Personal Description:</label>
+                    <label>Personal Description</label>
                     <input type="text" className="form-control" id="persDescription" onChange={this.handlePersonalDescriptionChange} />
                 </div>
                 <FormGroup>
@@ -253,7 +264,8 @@ export class Candidates extends Component {
                 </FormGroup>
 
 
-                <button className="button_register" type="submit"  onClick={this.registerClick}>Register</button>
+                <button className="button_register" type="submit" onClick={this.registerClick}>Register</button>
+                <ToastContainer/>
             </form>
         )
     };
