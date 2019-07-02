@@ -4,3 +4,9 @@
 #fileLoad{
     border-style: none;
 }
+
+#selectedImage {
+    width: 150px;
+    height: 150px;
+    border: solid white;
+}

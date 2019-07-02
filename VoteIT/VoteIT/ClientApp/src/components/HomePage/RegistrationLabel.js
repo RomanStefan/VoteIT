@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './RegistrationLabel.css';
 import axios from 'axios';
+import zxcvbn from 'zxcvbn';
 //https://reactstrap.github.io/components/tabs/       <<<LOOK HERE
 export class RegistrationLabel extends Component {
 
@@ -73,6 +74,7 @@ export class Voters extends Component {
             username: '',
             password: '',
             selectedImage: null,
+            suggestions:[],
             buffer: []
         };
 
@@ -91,11 +93,19 @@ export class Voters extends Component {
     }
 
     handlePasswordChange(evt) {
-        this.setState({ password: evt.target.value });
-        console.log(evt.target.value);
+        const password = evt.target.value;
+        const evaluation = zxcvbn(password, [this.state.username]);
+        this.setState({
+            password: evt.target.value,
+            score: evaluation.score,
+            suggestions: evaluation.feedback.suggestions
+        });
+        console.log(evaluation);
     }
 
     handleImageChange(evt) {
+        this.setState({ selectedImage: URL.createObjectURL(evt.target.files[0]) });
+        console.log("SelectedImage:{0}", evt.target.files[0]);
 
         let reader = new FileReader();
         reader.readAsDataURL(evt.target.files[0]);
@@ -103,7 +113,6 @@ export class Voters extends Component {
         let self = this;
         reader.onload = function () {
             self.setState({ buffer: reader.result });
-            console.log(reader.result);
         };
 
         reader.onerror = function (error) {
@@ -131,6 +140,7 @@ export class Voters extends Component {
     }
 
     render() {
+        const { score, suggestions } = this.state;
         return (
             <form>
                 <h2>Voters Registration</h2>
@@ -140,14 +150,20 @@ export class Voters extends Component {
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" id="pwd" onChange={this.handlePasswordChange}/>
+                    <input type="password" className="form-control" id="pwd" onChange={this.handlePasswordChange} />
+                    <p>Password score: {score} (4 is the maximum)</p>
+                    <ul>
+                        {suggestions.map((s, index) =>
+                            <li key={index}>{s}</li>
+                        )}
+                    </ul>
                 </div>
                 <div className="form-group">
                     <label>Identity Card Photo</label>
-                    <input type="file" className="form-control" id="fileLoad" onChange={this.handleImageChange}/>
+                    <input type="file" className="form-control" id="fileLoad" onChange={this.handleImageChange} />
+                    <img id="selectedImage" src={this.state.selectedImage} />
                 </div>
-
-
+                
                 <button className="button_register" type="submit" onClick={this.registerClick}>Register</button>
                 <ToastContainer/>
             </form>
@@ -164,6 +180,7 @@ export class Candidates extends Component {
             userName: '',
             password: '',
             personalDescription: '',
+            suggestions: [],
             politicalParty: 'PSD'
         };
 
@@ -195,8 +212,14 @@ export class Candidates extends Component {
     }
 
     handlePasswordChange(evt) {
-        this.setState({ password: evt.target.value });
-        console.log(evt.target.value);
+        const password = evt.target.value;
+        const evaluation = zxcvbn(password, [this.state.username]);
+        this.setState({
+            password: evt.target.value,
+            score: evaluation.score,
+            suggestions: evaluation.feedback.suggestions
+        });
+        console.log(evaluation);
     }
 
     handlePersonalDescriptionChange(evt) {
@@ -231,6 +254,7 @@ export class Candidates extends Component {
     }
 
     render() {
+        const { score, suggestions } = this.state;
         return (
             <form>
                 <h2>Candidates Registration</h2>
@@ -249,6 +273,12 @@ export class Candidates extends Component {
                 <div className="form-group">
                     <label>Password</label>
                     <input type="password" className="form-control" id="pwd" onChange={this.handlePasswordChange} />
+                    <p>Password score: {score} (4 is the maximum)</p>
+                    <ul>
+                        {suggestions.map((s, index) =>
+                            <li key={index}>{s}</li>
+                        )}
+                    </ul>
                 </div>
                 <div className="form-group">
                     <label>Personal Description</label>

@@ -26,7 +26,7 @@ export class Toolbar extends Component {
                     <div className="toolbar_toggle_button">
                         <DrawerToggleButton click={this.props.drawerClickHandler} />
                     </div>
-                    <div className="toolbar_logo"><a href="/candidate">The Logo</a></div>
+                    <div className="toolbar_logo"><a href="/candidate">VoteIT</a></div>
                     <div className="spacer"></div>
                     <div className="toolbar_navigation_items">
                         <ul>

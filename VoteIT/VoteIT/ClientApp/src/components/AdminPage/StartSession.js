@@ -74,7 +74,7 @@ export class StartSession extends Component {
             return this.state.availableSessions.map((session, index) => {
                 const { idSession, sesionName } = session //destructuring
                 return (
-                    <p><b>{sesionName}</b> is already open.</p>
+                    <p><b>{sesionName}</b> are already open.</p>
                 )
             })
         }
